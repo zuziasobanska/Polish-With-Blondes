@@ -1,7 +1,5 @@
 Polish with Blondes
 
-To jest moj pierwszy pull request
-
 Git workflow:
 - Make sure you are on main branch
 - Update main branch:
