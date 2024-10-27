@@ -9,18 +9,20 @@ export const Navbar = () => {
       <ul>
         <li>
           <a href="">Book a lesson</a>
-        </li>{' '}
-        <li>
-          <a href="">Worksheets</a>
-        </li>{' '}
-        <li>
-          <a href="">Podcasts</a>
-        </li>{' '}
-        <li>
-          <a href="https://www.youtube.com/@polishwithblondes">Youtube</a>
         </li>
         <li>
-          <a href="https://buymeacoffee.com/polishwithblnds">
+          <a href="">Worksheets</a>
+        </li>
+        <li>
+          <a href="">Podcasts</a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@polishwithblondes" target="_blank">
+            Youtube
+          </a>
+        </li>
+        <li>
+          <a href="https://buymeacoffee.com/polishwithblnds" target="_blank">
             support our work
           </a>
         </li>

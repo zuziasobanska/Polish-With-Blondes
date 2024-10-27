@@ -1,12 +1,8 @@
-* {
-  border: 1px solid red;
-}
-
 .app-container {
   background-color: var(--primary-background);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: var(--desktop-breakpoint)) {
   .navbar ul {
     display: none;
   }
