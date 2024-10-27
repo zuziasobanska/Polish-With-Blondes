@@ -1,0 +1,39 @@
+.navbar {
+  background-color: var(--primary-background);
+  color: var(--primary-font-color);
+  font-family: var(--font-family);
+  font-size: 14px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.navbar li {
+  align-self: center;
+  margin: 0px 5px;
+}
+
+.navbar a {
+  color: var(--primary-font-color);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.logo {
+  max-width: 150px;
+  flex-shrink: 0;
+}
+
+.hamburger {
+  display: none;
+}

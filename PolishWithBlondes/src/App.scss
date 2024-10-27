@@ -1,12 +1,14 @@
-$primary-color: #3498db;
-
-.container {
-  background-color: $primary-color;
-  color: white;
-  padding: 20px;
-  text-align: center;
+.app-container {
+  background-color: var(--primary-background);
 }
 
-h1 {
-  font-size: 2rem;
+@media (max-width: var(--desktop-breakpoint)) {
+  .navbar ul {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    width: 50px;
+  }
 }
