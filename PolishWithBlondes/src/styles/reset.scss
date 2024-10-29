@@ -10,10 +10,9 @@ html {
 }
 
 body {
-  font-family: sans-serif; /* You can change this to your preferred font */
+  font-family: sans-serif;
 }
 
-/* Additional resets */
 h1,
 h2,
 h3,
@@ -37,4 +36,8 @@ table {
 img {
   max-width: 100%;
   display: block;
+}
+
+button {
+  border-style: none;
 }

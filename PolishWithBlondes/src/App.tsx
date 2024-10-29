@@ -1,5 +1,5 @@
-import { Home } from './pages/home/Home';
 import { Navbar } from './components/navbar/Navbar';
+import { Hero } from './components/hero/hero';
 
 import './styles/reset.scss';
 import './styles/global.scss';
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="app-container">
       <Navbar />
-      <Home />
+      <Hero />
     </div>
   );
 }
