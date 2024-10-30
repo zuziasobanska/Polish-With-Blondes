@@ -1,15 +1,12 @@
 :root {
   --primary-font-color: #1a1a1a; // Dark gray for text contrast
-  --primary-background: #f5ece7; // Soft peach background
-  --secondary-font-color: #ff7755; // Warm reddish-orange
+  --color-light-bg: #f8fafc;
   --secondary-background: #fff; // Clean white
-  --accent-color: #ff7755;
+  --button-color: #eca88e;
 
   --font-family: "Poppins", sans-serif;
 
   --header-font-size: 32px;
   --subheader-font-size: 24px;
   --text-font-size: 16px;
-
-  --desktop-breakpoint: 1000px;
 }

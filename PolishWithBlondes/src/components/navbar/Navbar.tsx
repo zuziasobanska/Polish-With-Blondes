@@ -1,5 +1,5 @@
 import './navbar.scss';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo1.png';
 import hamburger from '../../assets/hamburger.png';
 
 export const Navbar = () => {

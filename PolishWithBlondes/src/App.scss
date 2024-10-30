@@ -1,14 +1,59 @@
 .app-container {
-  background-color: var(--primary-background);
+  background-color: var(--color-light-bg);
 }
 
-@media (max-width: var(--desktop-breakpoint)) {
+@media (max-width: 1000px) {
   .navbar ul {
     display: none;
   }
-
   .hamburger {
     display: block;
     width: 50px;
   }
+  .hero {
+    flex-direction: column;
+  }
+
+  .left {
+    padding-bottom: 40px;
+  }
+
+  .hero-title,
+  .hero-sub,
+  .hero-text,
+  .btn {
+    width: 100%;
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: 1001px) {
+  .pic {
+    width: 55%;
+  }
+
+  .left {
+    width: 40%;
+  }
+}
+
+.btn {
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  background-color: var(--button-color);
+  padding: 20px;
+  align-self: center;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  transform: translateY(1px);
 }
