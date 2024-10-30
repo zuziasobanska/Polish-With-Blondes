@@ -9,16 +9,11 @@
   margin: 0 auto;
   justify-content: space-between;
 }
-
-// It's not the best practice to use padding as a spacer between columns.
-// Try setting the width of both columns (maybe percentage, like 48% and 48%) and then use justify-content: space-between
-
 .left {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .hero-title,
 .hero-sub,
 .hero-text {
@@ -34,7 +29,6 @@
 }
 .hero-sub a {
   color: var(--button-color);
-  text-decoration: underline;
 }
 .hero-text {
   font-size: 16px;
@@ -47,6 +41,6 @@
   flex-shrink: 0;
 }
 .hero-pic {
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
