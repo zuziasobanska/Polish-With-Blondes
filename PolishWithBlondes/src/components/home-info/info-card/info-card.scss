@@ -1,0 +1,60 @@
+// <div className="card-container">
+//   <img className="card-icon" />
+//   <h2 className="card-title">Private classes</h2>
+//   <p className="card-description">
+//     Boost your confidence in speaking Polish, learn grammar effectively!
+//   </p>
+// </div>
+
+//   --font-family: "Poppins", sans-serif;
+
+//   --header-font-size: 32px;
+//   --subheader-font-size: 24px;
+//   --text-font-size: 16px;
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  padding: 40px 35px;
+  margin: 0px 20px;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--box-shadow);
+  transition: color 0.3s, transform 0.3s;
+  transition: margin-bottom 0.3s ease;
+}
+
+.card-title {
+  font-family: var(--font-family);
+  font-size: var(--subheader-font-size);
+  font-weight: 700;
+  padding: 20px 0px;
+}
+
+.card-description {
+  display: block;
+  font-family: var(--font-family);
+  font-size: var(--text-font-size);
+  animation: fadeIn 1.5s;
+}
+
+.card-container:hover {
+  margin-bottom: 5px;
+  margin-top: -5px;
+}
+
+.card-icon {
+  width: 30%;
+  align-self: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,5 +1,6 @@
 import { Navbar } from './components/navbar/Navbar';
 import { Hero } from './components/hero/hero';
+import { HomeInfo } from './components/home-info/home-info';
 
 import './styles/reset.scss';
 import './styles/global.scss';
@@ -10,6 +11,7 @@ function App() {
     <div className="app-container">
       <Navbar />
       <Hero />
+      <HomeInfo />
     </div>
   );
 }
