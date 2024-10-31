@@ -4,14 +4,14 @@
 }
 
 .info-container {
-  max-width: 1060px;
+  max-width: var(--max-width-container);
   flex-direction: column;
   margin: 0 auto;
   justify-content: center;
 }
 
 .info-title-container {
-  max-width: 1060px;
+  max-width: var(--max-width-container);
   margin: 30px auto 60px 20px;
   font-family: var(--font-family);
   font-size: var(--header-font-size);

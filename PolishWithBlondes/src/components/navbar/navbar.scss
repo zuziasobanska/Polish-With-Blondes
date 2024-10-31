@@ -6,7 +6,7 @@
   padding: 40px;
   display: flex;
   justify-content: space-between;
-  max-width: 1060px;
+  max-width: var(--max-width-container);
   margin-left: auto;
   margin-right: auto;
 }
