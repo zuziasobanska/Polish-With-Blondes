@@ -1,5 +1,9 @@
-.hero {
+.hero-container {
   background-color: var(--color-light-bg);
+  padding-bottom: 70px;
+}
+
+.hero {
   color: var(--primary-font-color);
   font-family: var(--font-family);
   font-size: 14px;
@@ -9,6 +13,7 @@
   margin: 0 auto;
   justify-content: space-between;
 }
+
 .left {
   display: flex;
   flex-direction: column;

@@ -1,29 +1,28 @@
-// <div className="card-container">
-//   <img className="card-icon" />
-//   <h2 className="card-title">Private classes</h2>
-//   <p className="card-description">
-//     Boost your confidence in speaking Polish, learn grammar effectively!
-//   </p>
-// </div>
-
-//   --font-family: "Poppins", sans-serif;
-
-//   --header-font-size: 32px;
-//   --subheader-font-size: 24px;
-//   --text-font-size: 16px;
-
 .card-container {
   display: flex;
   flex-direction: column;
   background-color: white;
   text-align: center;
-  padding: 40px 35px;
-  margin: 0px 20px;
-  width: 500px;
+  padding: 40px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px var(--box-shadow);
   transition: color 0.3s, transform 0.3s;
-  transition: margin-bottom 0.3s ease;
+  transition: margin 0.3s ease;
+  width: 240px;
+  height: 320px;
+}
+
+@media (max-width: 1000px) {
+  .card-container {
+    height: 280px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 828px) {
+  .card-container {
+    width: 450px;
+  }
 }
 
 .card-title {
@@ -37,7 +36,9 @@
   display: block;
   font-family: var(--font-family);
   font-size: var(--text-font-size);
+  font-weight: 300;
   animation: fadeIn 1.5s;
+  padding: 10px 0px 20px 0px;
 }
 
 .card-container:hover {
@@ -48,6 +49,20 @@
 .card-icon {
   width: 30%;
   align-self: center;
+}
+@media (max-width: 1000px) {
+  .card-icon {
+    width: 15%;
+    align-self: center;
+    padding-bottom: 10px;
+  }
+}
+@media (max-width: 828px) {
+  .card-icon {
+    width: 10%;
+    align-self: center;
+    padding-bottom: 10px;
+  }
 }
 
 @keyframes fadeIn {
