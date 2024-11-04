@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .vite/*
+
+# //api key: AIzaSyBaooWVq4y1lsyNk9lLXNt9-ZZG1MjMEXE
+# //channel ID: UClGR6kVvAznpGs_50QlosLQ
+# //uploads ID: "UUlGR6kVvAznpGs_50QlosLQ"
+# // url: https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUlGR6kVvAznpGs_50QlosLQ&key=AIzaSyBaooWVq4y1lsyNk9lLXNt9-ZZG1MjMEXE

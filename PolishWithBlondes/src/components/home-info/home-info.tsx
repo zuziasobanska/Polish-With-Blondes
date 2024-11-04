@@ -3,13 +3,13 @@ import './home-info.scss';
 
 export const HomeInfo = () => {
   return (
-    <div className="info-outer-container">
-      <div className="info-container">
-        <div className="info-title-container">
+    <div className="outer-container">
+      <div className="container">
+        <div className="title-container">
           <p>How can we help you?</p>
           <hr className="line"></hr>
         </div>
-        <div className="info-content-container">
+        <div className="content-container info">
           <InfoCard
             title="Conversation classes"
             description="Boost your confidence in speaking Polish blabla blabla"
