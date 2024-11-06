@@ -1,7 +1,7 @@
-import './home-youtube.scss';
-import { YoutubeVideos } from '../youtube-video/youtube';
+import './YoutubeSection.scss';
+import { YoutubeList } from '../YoutubeList/YoutubeList';
 
-export const HomeYoutube = () => {
+export const YoutubeSection = () => {
   return (
     <div className="outer-container">
       <div className="container">
@@ -10,7 +10,7 @@ export const HomeYoutube = () => {
           <hr className="line"></hr>
         </div>
         <div className="content-container yt">
-          <YoutubeVideos />
+          <YoutubeList />
         </div>
       </div>
     </div>

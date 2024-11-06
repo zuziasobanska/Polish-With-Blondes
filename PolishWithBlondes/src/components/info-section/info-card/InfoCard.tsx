@@ -1,4 +1,4 @@
-import './info-card.scss';
+import './InfoCard.scss';
 
 export const InfoCard = ({
   title,

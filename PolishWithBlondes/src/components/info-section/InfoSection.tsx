@@ -1,7 +1,7 @@
-import { InfoCard } from './info-card/info-card';
-import './home-info.scss';
+import { InfoCard } from './info-card/InfoCard';
+import './InfoSection.scss';
 
-export const HomeInfo = () => {
+export const InfoSection = () => {
   return (
     <div className="outer-container">
       <div className="container">

@@ -1,7 +1,7 @@
 import { Navbar } from './components/navbar/Navbar';
-import { Hero } from './components/hero/hero';
-import { HomeInfo } from './components/home-info/home-info';
-import { HomeYoutube } from './components/home-youtube/home-youtube';
+import { Hero } from './components/hero/Hero';
+import { InfoSection } from './components/info-section/InfoSection';
+import { YoutubeSection } from './components/youtube-section/YoutubeSection';
 
 import './styles/reset.scss';
 import './styles/global.scss';
@@ -12,8 +12,8 @@ function App() {
     <div className="app-container">
       <Navbar />
       <Hero />
-      <HomeInfo />
-      <HomeYoutube />
+      <InfoSection />
+      <YoutubeSection />
     </div>
   );
 }
