@@ -3,13 +3,13 @@ import './InfoSection.scss';
 
 export const InfoSection = () => {
   return (
-    <div className="outer-container">
+    <div className="info-outer-container">
       <div className="container">
-        <div className="title-container">
+        <div className="title">
           <p>How can we help you?</p>
           <hr className="line"></hr>
         </div>
-        <div className="content-container info">
+        <div className="content-container">
           <InfoCard
             title="Conversation classes"
             description="Boost your confidence in speaking Polish blabla blabla"
