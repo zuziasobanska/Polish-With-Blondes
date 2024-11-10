@@ -1,0 +1,34 @@
+.newsletter-outer-container {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .title {
+    max-width: var(--max-width-container);
+    margin: 30px auto 60px 20px;
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
+    font-weight: 600;
+  }
+  .subheading {
+    // margin-bottom: 10px;
+    font-size: var(--subheader-font-size);
+  }
+  .description {
+    font-size: 16px;
+  }
+
+  .line {
+    width: 87px;
+    border: 2px solid #3897d3;
+  }
+
+  //   .column.right {
+  //   }
+}
+
+.iphone-icon {
+  height: 300px;
+  flex-shrink: 0;
+}

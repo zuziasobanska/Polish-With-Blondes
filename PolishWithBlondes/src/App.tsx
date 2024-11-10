@@ -2,6 +2,7 @@ import { Navbar } from './components/navbar/Navbar';
 import { Hero } from './components/hero/Hero';
 import { InfoSection } from './components/info-section/InfoSection';
 import { YoutubeSection } from './components/youtube-section/YoutubeSection';
+import { Newsletter } from './components/newsletter/Newsletter';
 
 import './styles/reset.scss';
 import './styles/global.scss';
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <InfoSection />
       <YoutubeSection />
+      <Newsletter />
     </div>
   );
 }
