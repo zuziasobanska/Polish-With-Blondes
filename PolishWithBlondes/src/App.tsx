@@ -1,8 +1,9 @@
-import { Navbar } from './components/navbar/Navbar';
-import { Hero } from './components/hero/Hero';
-import { InfoSection } from './components/info-section/InfoSection';
-import { YoutubeSection } from './components/youtube-section/YoutubeSection';
-import { Newsletter } from './components/newsletter/Newsletter';
+import { Navbar } from './components/Navbar/Navbar';
+import { YoutubeSection } from './components/YoutubeSection/YoutubeSection';
+import { InfoSection } from './components/InfoSection/InfoSection';
+import { Newsletter } from './components/Newsletter/Newsletter';
+import { Hero } from './components/Hero/Hero';
+import { Footer } from './components/Footer/Footer';
 
 import './styles/reset.scss';
 import './styles/global.scss';
@@ -16,6 +17,7 @@ function App() {
       <InfoSection />
       <YoutubeSection />
       <Newsletter />
+      <Footer />
     </div>
   );
 }

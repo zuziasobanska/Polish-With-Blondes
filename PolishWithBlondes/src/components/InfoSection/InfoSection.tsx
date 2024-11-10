@@ -1,4 +1,4 @@
-import { InfoCard } from './info-card/InfoCard';
+import { InfoCard } from './InfoCard/InfoCard';
 import './InfoSection.scss';
 
 export const InfoSection = () => {

@@ -1,5 +1,5 @@
-import './YoutubeSection.scss';
 import { YoutubeList } from '../YoutubeList/YoutubeList';
+import './YoutubeSection.scss';
 
 export const YoutubeSection = () => {
   return (

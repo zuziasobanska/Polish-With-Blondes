@@ -11,6 +11,9 @@ export const Navbar = () => {
           <a href="">Book a lesson</a>
         </li>
         <li>
+          <a href="">Newsletter</a>
+        </li>
+        <li>
           <a href="">Worksheets</a>
         </li>
         <li>
