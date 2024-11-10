@@ -9,7 +9,7 @@
   font-size: 14px;
   padding: 40px;
   display: flex;
-  max-width: 1060px;
+  max-width: var(--max-width-container);
   margin: 0 auto;
   justify-content: space-between;
 }
