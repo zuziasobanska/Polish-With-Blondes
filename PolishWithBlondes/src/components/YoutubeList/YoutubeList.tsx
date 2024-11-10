@@ -20,6 +20,7 @@ export const YoutubeList = () => {
   const [videos, setVideos] = useState<Video[]>([]);
 
   useEffect(() => {
+    console.log(import.meta.env.VITE_API_KEY);
     fetch(import.meta.env.VITE_API_KEY)
       .then((res) => res.json())
       .then((data) => {

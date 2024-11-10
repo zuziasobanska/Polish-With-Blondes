@@ -1,12 +1,12 @@
 .youtube-videos {
   display: flex;
   flex-direction: row;
-  width: 1000px;
+  width: 1060px;
   justify-content: space-between;
 }
 
 .video-card {
-  width: 480px;
+  width: 490px;
 }
 
 .video-thumbnail-container {
@@ -44,11 +44,25 @@
   padding: 20px 0px 20px 0px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .youtube-videos {
     display: flex;
     flex-direction: column;
     width: 480px;
-    justify-content: center;
   }
+}
+
+@media (max-width: 550px) {
+  .video-card {
+    width: 340px;
+  }
+  .video-thumbnail-container {
+    width: 340px;
+  }
+}
+
+.video-title {
+  color: var(--primary-font-color);
+  font-size: var(--text-font-size);
+  font-weight: 600;
 }

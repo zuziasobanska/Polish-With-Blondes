@@ -1,10 +1,9 @@
 import { Navbar } from './components/Navbar/Navbar';
 import { YoutubeSection } from './components/YoutubeSection/YoutubeSection';
 import { InfoSection } from './components/InfoSection/InfoSection';
-import { Newsletter } from './components/Newsletter/Newsletter';
 import { Hero } from './components/Hero/Hero';
-import { Footer } from './components/Footer/Footer';
-
+import { Newsletter } from './components/newsletter/Newsletter';
+import { Footer } from './components/Footer/footer';
 import './styles/reset.scss';
 import './styles/global.scss';
 import './App.scss';
