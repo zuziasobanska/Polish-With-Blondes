@@ -2,7 +2,6 @@ import './Footer.scss';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  console.log(currentYear);
 
   return (
     <div className="outer-container footer">

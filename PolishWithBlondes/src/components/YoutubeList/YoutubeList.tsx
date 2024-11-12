@@ -20,7 +20,6 @@ export const YoutubeList = () => {
   const [videos, setVideos] = useState<Video[]>([]);
 
   useEffect(() => {
-    console.log(import.meta.env.VITE_API_KEY);
     fetch(import.meta.env.VITE_API_KEY)
       .then((res) => res.json())
       .then((data) => {
@@ -54,27 +53,3 @@ export const YoutubeList = () => {
     </div>
   );
 };
-
-// Here you can find a nice trick to style a video component preserving a proper aspect ratio:
-
-// <div class="videoWrapper">
-//   <iframe width="560" height="349" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
-// </div>
-
-// .videoWrapper {
-//   position: relative;
-//   padding-bottom: 56.25%; /* 16:9 */
-//   height: 0;
-// }
-// .videoWrapper iframe {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-// }
-
-// You don't have iFrame in your implementation, but you could try this anyway.
-
-// Apply css rules from .videoWrapper above to your .video-thumbnail-container class
-// and css rules from .videoWrapper iframe to your .video-thumbnail class
