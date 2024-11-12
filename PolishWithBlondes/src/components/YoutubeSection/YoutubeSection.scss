@@ -8,11 +8,12 @@
   flex-direction: column;
   margin: 0 auto;
   justify-content: center;
+  padding: 0px 15px;
 }
 
 .title-container {
   max-width: var(--max-width-container);
-  margin: 30px auto 60px 20px;
+  margin: 30px auto 60px 0px;
   font-family: var(--font-family);
   font-size: var(--header-font-size);
   font-weight: 600;
@@ -29,4 +30,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+@media (max-width: 1050px) {
+  .content-container {
+    justify-content: center;
+  }
 }

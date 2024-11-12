@@ -7,11 +7,12 @@
     flex-direction: column;
     margin: 0 auto;
     justify-content: center;
+    padding: 40px 15px;
   }
 
   .title {
     max-width: var(--max-width-container);
-    margin: 30px auto 60px 20px;
+    margin: 0px auto 60px 0px;
     font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 600;
@@ -28,6 +29,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+}
+
+@media (min-width: 1001px) {
+  .info-outer-container {
+    .content-container {
+      justify-content: space-between;
+    }
   }
 }
 

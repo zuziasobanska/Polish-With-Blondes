@@ -20,11 +20,6 @@ export const Navbar = () => {
           <a href="">Podcasts</a>
         </li>
         <li>
-          <a href="https://www.youtube.com/@polishwithblondes" target="_blank">
-            Youtube
-          </a>
-        </li>
-        <li>
           <a href="https://buymeacoffee.com/polishwithblnds" target="_blank">
             support our work
           </a>

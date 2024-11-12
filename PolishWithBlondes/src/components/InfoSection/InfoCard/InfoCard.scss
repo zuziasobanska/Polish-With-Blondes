@@ -8,20 +8,22 @@
   box-shadow: 0 4px 10px var(--box-shadow);
   transition: color 0.3s, transform 0.3s;
   transition: margin 0.3s ease;
-  width: 240px;
-  height: 320px;
+  width: 220px;
+  height: 300px;
 }
 
 @media (max-width: 1000px) {
   .card-container {
     height: 280px;
     width: 400px;
+    margin-bottom: 25px;
   }
 }
 
 @media (max-width: 828px) {
   .card-container {
     width: 450px;
+    margin-bottom: 25px;
   }
 }
 
@@ -40,9 +42,11 @@
   padding: 10px 0px 20px 0px;
 }
 
-.card-container:hover {
-  margin-bottom: 5px;
-  margin-top: -5px;
+@media (min-width: 1001px) {
+  .card-container:hover {
+    margin-bottom: 5px;
+    margin-top: -5px;
+  }
 }
 
 .card-icon {
