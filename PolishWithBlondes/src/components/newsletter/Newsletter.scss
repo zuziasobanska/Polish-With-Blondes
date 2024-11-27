@@ -1,22 +1,30 @@
 .newsletter-outer-container {
+  font-family: var(--font-family);
   .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
   .title {
+    color: var(--primary-font-color);
     max-width: var(--max-width-container);
-    margin: 30px auto 60px 0px;
+    margin: 70px auto 60px 0px;
     font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 600;
   }
+  .title p {
+    margin-bottom: 10px;
+  }
   .subheading {
-    // margin-bottom: 10px;
+    color: var(--primary-font-color);
     font-size: var(--subheader-font-size);
   }
   .description {
+    color: var(--primary-font-color);
     font-size: 16px;
+    margin: 20px auto 60px 0px;
+    line-height: 1.2;
   }
 
   .line {
@@ -24,11 +32,66 @@
     border: 2px solid #3897d3;
   }
 
-  //   .column.right {
-  //   }
+  .column.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .column.right form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .column.left {
+    max-width: var(--max-width-container);
+  }
+
+  .btn {
+    margin-top: 0;
+    margin-bottom: 50px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #357ab7;
+  }
+
+  .privacy-text {
+    font-size: 14px;
+    color: #666;
+    width: 500px;
+    padding-right: 10px;
+    line-height: 1.2;
+  }
+
+  .privacy-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .privacy-text a:hover {
+    text-decoration: underline;
+  }
 }
 
-.iphone-icon {
-  height: 300px;
-  flex-shrink: 0;
+input[type="text"],
+input[type="email"] {
+  font-family: var(--font-family);
+  width: 500px;
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: var(--text-font-size);
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #007bff;
 }
