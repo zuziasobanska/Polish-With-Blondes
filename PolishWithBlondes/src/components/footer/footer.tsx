@@ -4,9 +4,9 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="outer-container footer">
-      <div className="container footer">
-        <div className="footer-column">
+    <div className="outer-container-footer">
+      <div className="container">
+        <div className="column">
           <ul>
             <li>
               <a href="">Book a lesson</a>
@@ -22,7 +22,7 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer-column">
+        <div className="column">
           <ul>
             <li>
               <a
@@ -48,7 +48,7 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer-column icons">
+        <div className="column icons">
           <div className="footer-icons">
             <img className="footer-icon" src="src/assets/ig-icon.png" />
             <img className="footer-icon" src="src/assets/facebook-icon.png" />

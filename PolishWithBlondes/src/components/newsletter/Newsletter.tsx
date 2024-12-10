@@ -10,7 +10,7 @@ export const Newsletter = () => {
             <hr className="line"></hr>
           </div>
           <p className="subheading">
-            Join a growing community of Polish learners.
+            Join a growing community of Polish learners. 💌
           </p>
           <p className="description">
             Every two weeks we share worksheets based on our videos, useful
@@ -19,7 +19,21 @@ export const Newsletter = () => {
           </p>
         </div>
         <div className="column right">
-          <img className="iphone-icon" src="src/assets/iphone-icon.png" />
+          <form>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="First Name"
+            />
+            <input type="text" id="email" name="email" placeholder="Email" />
+            <p className="privacy-text">
+              By signing up, you'll receive communications from Polish with
+              Blondes. For more information, see our
+              <a href="#">privacy policy</a>.
+            </p>
+            <input type="submit" value="Subscribe" className="btn" />
+          </form>
         </div>
       </div>
     </div>
