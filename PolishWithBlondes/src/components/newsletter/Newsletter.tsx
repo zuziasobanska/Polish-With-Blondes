@@ -25,21 +25,13 @@ export const Newsletter = () => {
               id="fname"
               name="fname"
               placeholder="First Name"
-            ></input>
-            <br />
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Email"
-            ></input>
-            <br />
+            />
+            <input type="text" id="email" name="email" placeholder="Email" />
             <p className="privacy-text">
               By signing up, you'll receive communications from Polish with
-              Blondes. For more information, see our{' '}
+              Blondes. For more information, see our
               <a href="#">privacy policy</a>.
             </p>
-            <br />
             <input type="submit" value="Subscribe" className="btn" />
           </form>
         </div>

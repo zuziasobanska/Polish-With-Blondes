@@ -14,10 +14,6 @@
     flex-direction: column;
   }
 
-  .left {
-    padding-bottom: 40px;
-  }
-
   .hero-title,
   .hero-sub,
   .hero-text,
@@ -30,10 +26,6 @@
 @media (min-width: 1001px) {
   .pic {
     width: 55%;
-  }
-
-  .left {
-    width: 40%;
   }
 }
 
