@@ -7,7 +7,6 @@ export const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Function to handle the scroll event
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
         setIsVisible(true);
@@ -26,7 +25,7 @@ export const BackToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // Smooth scrolling effect
+      behavior: 'smooth',
     });
   };
 
@@ -40,6 +39,3 @@ export const BackToTop = () => {
     </>
   );
 };
-
-// ↑
-// ⬆️
