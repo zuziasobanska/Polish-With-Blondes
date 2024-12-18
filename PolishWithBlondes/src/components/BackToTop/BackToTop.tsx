@@ -30,12 +30,10 @@ export const BackToTop = () => {
   };
 
   return (
-    <>
-      {isVisible && (
-        <button onClick={scrollToTop} className="backtotop">
-          <FontAwesomeIcon icon={faArrowUp} />
-        </button>
-      )}
-    </>
+    isVisible && (
+      <button onClick={scrollToTop} className="backtotop">
+        <FontAwesomeIcon icon={faArrowUp} />
+      </button>
+    )
   );
 };
