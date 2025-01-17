@@ -9,6 +9,8 @@ import './App.scss';
 
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
+import BookALesson from './pages/BookALesson';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/lessons" element={<BookALesson />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
 
         <Footer />

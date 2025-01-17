@@ -26,7 +26,7 @@ export const InfoSection = () => {
             icon="src/assets/grammar-icon.svg"
           />
           <InfoCard
-            title="Podcasts"
+            title="Podcast"
             description="Listen and learn on the go and blabla blablablabla blabla "
             icon="src/assets/podcast-icon.svg"
           />
