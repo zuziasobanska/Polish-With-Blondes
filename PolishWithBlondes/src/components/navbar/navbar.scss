@@ -27,6 +27,11 @@
   color: var(--primary-font-color);
   text-decoration: none;
   text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.navbar a:hover {
+  color: var(--button-color);
 }
 
 .logo {

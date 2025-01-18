@@ -15,10 +15,15 @@ export const Footer = () => {
               <a href="">Newsletter</a>
             </li>
             <li>
-              <a href="">Worksheets</a>
+              <a
+                href="https://buymeacoffee.com/polishwithblnds/extras"
+                target="_blank"
+              >
+                Worksheets
+              </a>
             </li>
             <li>
-              <a href="">Podcasts</a>
+              <a href="">Podcast</a>
             </li>
           </ul>
         </div>
@@ -50,9 +55,25 @@ export const Footer = () => {
         </div>
         <div className="column icons">
           <div className="footer-icons">
-            <img className="footer-icon" src="src/assets/ig-icon.png" />
+            <a
+              href="https://www.instagram.com/polishwithblondes/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="footer-icon"
+                src="src/assets/ig-icon.png"
+                alt="Instagram Icon"
+              />
+            </a>
             <img className="footer-icon" src="src/assets/facebook-icon.png" />
-            <img className="footer-icon" src="src/assets/yt-icon.png" />
+            <a
+              href="https://www.youtube.com/@polishwithblondes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="footer-icon" src="src/assets/yt-icon.png" />
+            </a>
             <img className="footer-icon" src="src/assets/tiktok-icon.png" />
           </div>
           <p className="icons8">
