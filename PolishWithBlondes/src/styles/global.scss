@@ -14,3 +14,7 @@
   --box-shadow: rgba(0, 0, 0, 0.2);
   --max-width-container: 1060px;
 }
+
+html {
+  scroll-behavior: smooth;
+}

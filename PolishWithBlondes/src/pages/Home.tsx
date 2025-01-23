@@ -1,7 +1,7 @@
 import { Hero } from '../components/Hero/Hero';
 import { InfoSection } from '../components/InfoSection/InfoSection';
 import { YoutubeSection } from '../components/YoutubeSection/YoutubeSection';
-import { Newsletter } from '../components/newsletter/Newsletter';
+import { NewsletterSection } from '../components/NewsletterSection/NewsletterSection';
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
       <Hero />
       <InfoSection />
       <YoutubeSection />
-      <Newsletter />
+      <NewsletterSection />
     </>
   );
 };
