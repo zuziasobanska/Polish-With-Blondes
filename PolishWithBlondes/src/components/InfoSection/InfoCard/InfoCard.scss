@@ -12,6 +12,10 @@
   height: 300px;
 }
 
+.card-container:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 1000px) {
   .card-container {
     height: 280px;

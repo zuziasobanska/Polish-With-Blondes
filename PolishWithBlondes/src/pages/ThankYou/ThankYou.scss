@@ -1,0 +1,135 @@
+.thankyou-upper-container {
+  background-color: var(--secondary-background);
+  padding-top: 70px;
+
+  .thankyou-container {
+    max-width: var(--max-width-container);
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 15px;
+  }
+
+  .thankyou-title {
+    max-width: var(--max-width-container);
+    margin-bottom: 30px;
+    font-family: var(--font-family);
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .thankyou-subtitle {
+    max-width: var(--max-width-container);
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      font-size: var(--subheader-font-size);
+      text-align: center;
+      font-weight: 400;
+      margin: 0px auto 60px auto;
+      font-weight: 400;
+      max-width: 700px;
+    }
+  }
+}
+
+.thankyou-lower-container {
+  padding-bottom: 70px;
+}
+.thankyou-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .intro {
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: var(--font-family);
+    font-size: var(--subheader-font-size);
+    font-weight: 500;
+  }
+}
+.thankyou-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.thankyou-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 300px;
+  .btn {
+    width: 60%;
+    a {
+      color: white;
+    }
+  }
+  p {
+    font-family: var(--font-family);
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0px 30px;
+  }
+  .thankyou-icon {
+    width: 10%;
+    align-self: center;
+    margin-bottom: 20px;
+  }
+}
+
+.thankyou-content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media (min-width: 1001px) {
+  .thankyou-outer-container {
+    .thankyou-content-container {
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 896px) {
+  .thankyou-lower-container {
+    .thankyou-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .thankyou-action {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 800px;
+      .btn {
+        max-width: 400px;
+        height: 60px;
+        font-size: 20px;
+      }
+      p {
+        font-family: var(--font-family);
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        padding: 0px 50px;
+        max-width: 600px;
+      }
+      .thankyou-icon {
+        width: 10%;
+        align-self: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

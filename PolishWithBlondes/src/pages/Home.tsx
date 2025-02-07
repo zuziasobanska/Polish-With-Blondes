@@ -4,6 +4,8 @@ import { YoutubeSection } from '../components/YoutubeSection/YoutubeSection';
 import { NewsletterSection } from '../components/NewsletterSection/NewsletterSection';
 
 const Home = () => {
+
+
   return (
     <>
       <Hero />

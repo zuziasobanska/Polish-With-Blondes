@@ -1,7 +1,7 @@
-.booklesson-outer-container {
+.contact-outer-container {
   font-family: var(--font-family);
   margin: 40px 0px 30px;
-  background-color: white;
+  background-color: var(--color-light-bg);
   .container {
     display: flex;
     flex-direction: row;
@@ -9,13 +9,13 @@
     padding: 15px;
   }
 
-  .booklesson-form {
+  .contact-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 50px;
 
-    .booklesson-action {
+    .contact-action {
       margin-bottom: 30px;
       max-width: 450px;
       font-weight: 500;
@@ -85,7 +85,7 @@
 }
 
 @media (max-width: 1012px) {
-  .booklesson-outer-container {
+  .contact-outer-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,12 +94,12 @@
       flex-direction: column;
       justify-content: center;
     }
-    .booklesson-form {
+    .contact-form {
       max-width: 600px;
       align-items: center;
       margin-top: 0px;
     }
-    .booklesson-action {
+    .contact-action {
       margin-bottom: 20px;
       max-width: 450px;
       font-weight: 500;
@@ -136,65 +136,8 @@
   }
 }
 
-.radio-outer-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.choose {
-  margin: 0;
-  font-size: 14.5px;
-}
-
-.radio-wrapper {
-  display: flex;
-  gap: 10px;
-}
-
-.radio-wrapper label {
-  font-size: 12px;
-  background: #fff;
-  padding: 12px 20px;
-  margin: 0px 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-  box-shadow: #ededed 0 0 0 1px inset, rgba(0, 0, 0, 0.05) 0 1px 2px 0;
-}
-
-label[for="Kasia"],
-label[for="Iza"],
-label[for="Zuzia"] {
-  font-size: 14px;
-}
-
-.radio-wrapper label:hover {
-  background: rgba(0, 0, 0, 0.03);
-  box-shadow: #cfcfcf 0 0 0 1px inset, rgba(0, 0, 0, 0.1) 0 1px 2px;
-}
-
-.radio-wrapper input {
-  appearance: none;
-  display: none;
-}
-
-.radio-wrapper input:focus {
-  outline: none;
-}
-
-.radio-wrapper input:checked + label {
-  background: var(--button-color);
-  color: white;
-  box-shadow: none;
-}
-
-.close-modal {
-  width: 25px;
-  height: 25px;
-  margin: 0;
-  padding: 0;
-  align-self: flex-end;
+@media (max-width: 1012px) {
+  .contact-form {
+    margin-top: 40px;
+  }
 }

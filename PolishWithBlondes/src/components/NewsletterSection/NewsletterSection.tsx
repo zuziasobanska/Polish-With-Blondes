@@ -1,10 +1,27 @@
 import './NewsletterSection.scss';
 import FormDescription from '../Form/FormDescription/FormDescription';
 import FormContent from '../Form/FormContent/FormContent';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export const NewsletterSection = () => {
+  const location = useLocation();
+
+useEffect(() => {
+  if (location.hash === "#newsletter") {
+    setTimeout(() => {
+      const newsletterSection = document.getElementById("newsletter");
+      if (newsletterSection) {
+        const yOffset = -30; 
+        const y = newsletterSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 300);
+  }
+}, [location]);
+
   return (
-    <div className="newsletter-outer-container">
+    <div className="newsletter-outer-container" id="newsletter">
       <div className="container">
         <FormDescription
           titleContent="Subscribe to Polish Notes"

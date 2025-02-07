@@ -1,7 +1,11 @@
 import heroPic1 from '../../assets/hero-pic1.png';
 import './hero.scss';
+import { useNavigate } from "react-router-dom";
+
 
 export const Hero = () => {
+      const navigate = useNavigate();
+
   return (
     <div className="hero-container">
       <div className="hero">
@@ -24,7 +28,8 @@ export const Hero = () => {
           </h3>
           <button
             className="btn"
-            onClick={() => alert('CTA button was clicked')}
+            onClick={() => navigate("/lessons")
+}
           >
             Book a 1:1 online class with us
           </button>
