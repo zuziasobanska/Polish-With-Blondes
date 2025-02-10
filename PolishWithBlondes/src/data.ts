@@ -1,6 +1,6 @@
 // Here we define data used in the entire page that never change
-import zuziaPic from '../../assets/zuzia-aboutme.png';
-import kasiaPic from '../../assets/kasia-aboutme.png';
+import zuziaPic from '../src/assets/zuzia-aboutme.png';
+import kasiaPic from '../src/assets/kasia-aboutme.png';
 
 import { Teacher } from './types';
 
