@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import './NavbarItem.scss';
 
 interface NavbarItemProps {
-  to: string; // can be href or to
+  to: string; 
   content: React.ReactNode;
   type: 'a' | 'NavLink';
 }

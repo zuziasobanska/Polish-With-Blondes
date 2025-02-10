@@ -1,10 +1,24 @@
 import './NewsletterSection.scss';
 import FormDescription from '../Form/FormDescription/FormDescription';
 import FormContent from '../Form/FormContent/FormContent';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { pageLocator } from '../../functions';
 
 export const NewsletterSection = () => {
+  const location = useLocation();
+
+useEffect(() => {
+const timeoutId = pageLocator({ locationId: "newsletter", yOffsetValue: -30 });
+
+ return () => {
+        clearTimeout(timeoutId); 
+      };
+}, [location]);
+
+
   return (
-    <div className="newsletter-outer-container">
+    <div className="newsletter-outer-container" id="newsletter">
       <div className="container">
         <FormDescription
           titleContent="Subscribe to Polish Notes"

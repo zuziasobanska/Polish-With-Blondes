@@ -8,6 +8,7 @@ interface FormDescriptionProps {
   titleContent: string;
   subheadingContent: string;
   descriptionContent: string;
+  extraContent?: string;
 }
 
 const FormDescription: React.FC<FormDescriptionProps> = ({
@@ -18,6 +19,7 @@ const FormDescription: React.FC<FormDescriptionProps> = ({
   titleContent,
   subheadingContent,
   descriptionContent,
+  extraContent,
 }) => {
   return (
     <div className={`column left ${nlColumnLeft || ''}`}>
@@ -29,6 +31,9 @@ const FormDescription: React.FC<FormDescriptionProps> = ({
       <p className={`description ${nlDescription || ''}`}>
         {descriptionContent}
       </p>
+      {extraContent !== "" && <p className="extracontent">{extraContent}
+</p>}
+     
     </div>
   );
 };

@@ -20,6 +20,10 @@
   transition: background-color 0.3s;
 }
 
+.modal-btn {
+  margin-bottom: 25px;
+}
+
 .btn:hover {
   background-color: #357ab7;
 }
@@ -58,31 +62,16 @@ input[type="email"]:focus {
   border-color: #007bff;
 }
 
-@media (max-width: 1012px) {
-    .title {
-      margin: 70px 0px 40px 0px;
-    }
-    .title p {
-      text-align: center;
-    }
-    .line {
-      display: none;
-    }
-    .description {
-      margin: 20px 0px 60px 0px;
-      text-align: center;
-      max-width: 470px;
-    }
-    .subheading {
-      text-align: center;
-    }
-  }
-
-
 @media (max-width: 529px) {
   input[type="text"],
   input[type="email"] {
     width: 100%;
     padding: 12px 10px;
   }
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin: 4px 0px;
 }
