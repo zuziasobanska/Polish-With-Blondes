@@ -1,5 +1,5 @@
 import heroPic1 from '../../assets/hero-pic1.png';
-import './hero.scss';
+import './Hero.scss';
 import { useNavigate } from "react-router-dom";
 
 

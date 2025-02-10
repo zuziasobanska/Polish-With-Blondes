@@ -29,11 +29,9 @@ export const BackToTop = () => {
     });
   };
 
-  return (
-    isVisible && (
-      <button onClick={scrollToTop} className="backtotop">
-        <FontAwesomeIcon icon={faArrowUp} />
-      </button>
-    )
-  );
+  return isVisible ? (
+  <button onClick={scrollToTop} className="backtotop">
+    <FontAwesomeIcon icon={faArrowUp} />
+  </button>
+) : null;
 };
