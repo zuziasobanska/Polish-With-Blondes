@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar/Navbar';
 import { BackToTop } from './components/BackToTop/BackToTop';
-import { Footer } from './components/Footer/footer';
+import { Footer } from './components/Footer/Footer';
 import './styles/reset.scss';
 import './styles/global.scss';
 import './App.scss';
