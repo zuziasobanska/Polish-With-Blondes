@@ -11,17 +11,17 @@ interface AboutMeProps {
 export const AboutMe: React.FC<AboutMeProps> = ({title, description, pic}) => {
 
   return (
-      <div className="aboutme-container">
-        <div className="aboutme">
-          <h1 className="aboutme-title">
+      <div className="about-me-container">
+        <div className="about-me">
+          <h1 className="about-me-title">
             <p>{title}</p>
-            <hr className="aboutme-line"></hr>
+            <hr className="about-me-line"></hr>
           </h1>
-          <h3 className="aboutme-description">{description}
+          <h3 className="about-me-description">{description}
           </h3>
         </div>
-        <div className="aboutme-pic-container">
-          <img src={pic} className="aboutme-pic" />
+        <div className="about-me-pic-container">
+          <img src={pic} className="about-me-pic" />
         </div>
       </div>
   );

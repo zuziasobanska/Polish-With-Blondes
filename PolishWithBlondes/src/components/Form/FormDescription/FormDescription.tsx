@@ -31,9 +31,9 @@ const FormDescription: React.FC<FormDescriptionProps> = ({
       <p className={`description ${nlDescription || ''}`}>
         {descriptionContent}
       </p>
-      <p className="extracontent">
-  { (extraContent || "")}
-</p>
+      {extraContent !== "" && <p className="extracontent">{extraContent}
+</p>}
+     
     </div>
   );
 };

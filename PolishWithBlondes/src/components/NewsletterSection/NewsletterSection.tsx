@@ -3,22 +3,19 @@ import FormDescription from '../Form/FormDescription/FormDescription';
 import FormContent from '../Form/FormContent/FormContent';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { pageLocator } from '../../functions';
 
 export const NewsletterSection = () => {
   const location = useLocation();
 
 useEffect(() => {
-  if (location.hash === "#newsletter") {
-    setTimeout(() => {
-      const newsletterSection = document.getElementById("newsletter");
-      if (newsletterSection) {
-        const yOffset = -30; 
-        const y = newsletterSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }, 300);
-  }
+const timeoutId = pageLocator({ locationId: "newsletter", yOffsetValue: -30 });
+
+ return () => {
+        clearTimeout(timeoutId); 
+      };
 }, [location]);
+
 
   return (
     <div className="newsletter-outer-container" id="newsletter">

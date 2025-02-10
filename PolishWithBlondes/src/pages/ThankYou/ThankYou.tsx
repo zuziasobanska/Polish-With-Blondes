@@ -2,6 +2,7 @@ import './ThankYou.scss'
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { pageLocator } from '../../functions';
 
 
 
@@ -10,19 +11,10 @@ const ThankYou = () => {
     const location = useLocation();
       const { title, subtitle, actionOne, buttonOne, actionTwo, buttonTwo, actionThree, buttonThree, iconOne, iconTwo, iconThree, buttonLinkOne, buttonLinkTwo, buttonLinkThree } = location.state || {};
 
-      const navigate = useNavigate()
+const navigate = useNavigate()
 
- useEffect(() => {
-  if (location.hash === "#thankyou") {
-    setTimeout(() => {
-      const thankYouSection = document.getElementById("thankyou");
-      if (thankYouSection) {
-        const yOffset = -10; 
-        const y = thankYouSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }, 300);
-  }
+useEffect(() => {
+pageLocator({ locationId: "thankyou", yOffsetValue: -10 });
 }, [location]);
 
       const handleClickTwo = () => {

@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { TEACHERS } from "../../data";
+import { pageLocator } from '../../functions';
+
+const navigateState = { state: { title: "Thank you", subtitle: "We will get back to you soon, most likely within 48h", actionOne: "Check out our shop with worksheets and listening practice, you can also claim some for free!", buttonOne: "Worksheets", actionTwo: "Subscribe to our monthly Polish Notes Newsletter if you haven't already  💌", buttonTwo: "Subscribe", actionThree: "Watch our Polish Grammar Cases Explained playlist to begin your learning process", buttonThree: "Playlist", iconOne:"src/assets/worksheet-icon.svg", iconTwo: "src/assets/mail-svgrepo-com.svg", iconThree: "src/assets/youtube-icon.svg", buttonLinkOne: "https://buymeacoffee.com/polishwithblnds/extras", buttonLinkTwo: "/#newsletter", buttonLinkThree: "https://www.youtube.com/watch?v=8EYQ-ozPRUE&list=PLdBAHfZCoj9KX_kswtFSlxGGTIyATifcB" } }
 
 
 const Contact = () => {
@@ -16,16 +19,7 @@ const Contact = () => {
      const location = useLocation();
 
 useEffect(() => {
-  if (location.hash === "#contact") {
-    setTimeout(() => {
-      const contactSection = document.getElementById("contact");
-      if (contactSection) {
-        const yOffset = -30; 
-        const y = contactSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }, 300);
-  }
+pageLocator({ locationId: "contact", yOffsetValue: -30 });
 }, [location]);
 
 const [thankYouIsDisplayed, setThankYouIsDisplayed] = useState(false);
@@ -96,10 +90,9 @@ const [thankYouIsDisplayed, setThankYouIsDisplayed] = useState(false);
         "N_b5K58BO5eV-WVg1" 
       )
       .then(
-        (response) => {
-          console.log("Email sent successfully:", response);
+        () => {
           setThankYouIsDisplayed(true)
-          navigate("/thankyou#thankyou", { state: { title: "Thank you", subtitle: "We will get back to you soon, most likely within 48h", actionOne: "Check out our shop with worksheets and listening practice, you can also claim some for free!", buttonOne: "Worksheets", actionTwo: "Subscribe to our monthly Polish Notes Newsletter if you haven't already  💌", buttonTwo: "Subscribe", actionThree: "Watch our Polish Grammar Cases Explained playlist to begin your learning process", buttonThree: "Playlist", iconOne:"src/assets/worksheet-icon.svg", iconTwo: "src/assets/mail-svgrepo-com.svg", iconThree: "src/assets/youtube-icon.svg", buttonLinkOne: "https://buymeacoffee.com/polishwithblnds/extras", buttonLinkTwo: "/#newsletter", buttonLinkThree: "https://www.youtube.com/watch?v=8EYQ-ozPRUE&list=PLdBAHfZCoj9KX_kswtFSlxGGTIyATifcB" } })
+          navigate("/thankyou#thankyou", navigateState )
         })
         .catch((error) => {
           console.error("Email send error:", error);
