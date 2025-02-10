@@ -1,3 +1,4 @@
+import React from "react";
 import './AboutMe.scss'
 
 interface AboutMeProps {

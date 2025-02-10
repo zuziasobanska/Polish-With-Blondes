@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar/Navbar';
-import { Footer } from './components/Footer/Footer';
 import { BackToTop } from './components/BackToTop/BackToTop';
+import { Footer } from './components/Footer/footer';
 import './styles/reset.scss';
 import './styles/global.scss';
 import './App.scss';

@@ -1,4 +1,5 @@
 // Here we define data used in the entire page that never change
+// import zuziaPic from '../../assets/zuzia-aboutme.png';
 
 import { Teacher } from './types';
 
