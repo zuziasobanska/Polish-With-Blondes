@@ -1,5 +1,6 @@
 import './YoutubeList.scss';
 import { useEffect, useState } from 'react';
+import youtubeIcon from '../../assets/youtube-icon.svg'
 
 interface Video {
   id: string;
@@ -39,7 +40,7 @@ export const YoutubeList = () => {
             className="video-link"
           >
             <div className="video-thumbnail-container">
-              <img className="youtube-icon" src="src/assets/youtube-icon.svg" />
+              <img className="youtube-icon" src={youtubeIcon} />
               <img
                 src={video.snippet.thumbnails.high.url}
                 alt={video.snippet.title}
