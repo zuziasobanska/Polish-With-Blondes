@@ -19,9 +19,14 @@ interface Video {
 
 export const YoutubeList = () => {
   const [videos, setVideos] = useState<Video[]>([]);
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const PLAYLIST_ID = "UUlGR6kVvAznpGs_50QlosLQ";
+
+  console.log("API Key:", API_KEY);
+
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_KEY)
+    fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=${PLAYLIST_ID}&key=${API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
         setVideos(data.items.slice(0, 2));
