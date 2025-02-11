@@ -26,7 +26,7 @@ export const ZUZIA: Teacher = {
 
 export const IZA: Teacher = {
   description:
-    'I am a professional language teacher and a university lecturer. I teach individuals as well as groups. I also have 7 years of experience teaching Polish to foreigners. My lessons include easy grammar explanations and a lot of speaking practice. I prepare my own teaching materials which we can then use in class. I am into learning languages myself so I think I have a good understanding of other learners’ needs and difficulties. Apart from teaching, some of my passions include painting and glass fusing.',
+    'Hi! I have lived in Spain and Poland for most of my adult life, having grown up and studied in Poland and the UK, and been a language teacher for over a decade. These days I use English, Polish and Spanish on the daily and I teach all of them. I am a huge bachata dancing enthusiast, also love to draw and read and be close to the sea.',
   email: 'izaaaas95@gmail.com',
   img: zuziaPic,
   name: 'Iza',
