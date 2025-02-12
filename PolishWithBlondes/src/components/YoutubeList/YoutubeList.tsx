@@ -22,8 +22,6 @@ export const YoutubeList = () => {
   const API_KEY = import.meta.env.VITE_API_KEY;
   const PLAYLIST_ID = "UUlGR6kVvAznpGs_50QlosLQ";
 
-  console.log("API Key:", API_KEY);
-
 
   useEffect(() => {
     fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=${PLAYLIST_ID}&key=${API_KEY}`)

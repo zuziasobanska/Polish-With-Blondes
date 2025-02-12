@@ -152,8 +152,8 @@ const [thankYouIsDisplayed, setThankYouIsDisplayed] = useState(false);
             descriptionContent="Learn Polish in a relaxed atmosphere with lots of speaking practice and simple explanations. Whether you just want to practise speaking, understand grammar or prepare for an exam, we will adapt the lesson to your needs!
               "
               extraContent='
-              30 minutes: 16 USD / 15 EUR / 65 PLN
-              45 minutes: 18 USD / 17 EUR / 75 PLN'
+              30 minutes: 95 PLN
+              45 minutes: 115 PLN'
           />
           <div className="booklesson-form">
             <div className="booklesson-action">Fill out this form and we will get back to you with available times</div>
@@ -191,7 +191,7 @@ const [thankYouIsDisplayed, setThankYouIsDisplayed] = useState(false);
                 required
               />
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 value={emailValue}

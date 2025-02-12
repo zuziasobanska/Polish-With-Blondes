@@ -6,8 +6,7 @@ export const pageLocator = ({
   yOffsetValue: number;
 }) => {
   let timeoutId = -1;
-  if (location.hash === `#${locationId}`) {
-    timeoutId = setTimeout(() => {
+    timeoutId = window.setTimeout(() => {
       const section = document.getElementById(locationId);
       if (section) {
         const yOffset = yOffsetValue;
@@ -15,7 +14,6 @@ export const pageLocator = ({
           section.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
-    }, 300);
-  }
+    }, 300)
   return timeoutId;
 };

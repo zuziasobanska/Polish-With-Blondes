@@ -60,7 +60,7 @@ const FormContent = () => {
         value={nameValue}
         onChange={handleNameChange}                 required
 />
-        <input type="text" id="email" name="email" placeholder="Email"
+        <input type="email" id="email" name="email" placeholder="Email"
         value={emailValue}
         onChange={handleEmailChange}                required
 />

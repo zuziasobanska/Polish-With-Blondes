@@ -16,11 +16,6 @@ const navigateState = { state: { title: "Thank you", subtitle: "We will get back
 
 const Contact = () => {
     const navigate = useNavigate();
-     const location = useLocation();
-
-useEffect(() => {
-pageLocator({ locationId: "contact", yOffsetValue: -30 });
-}, [location]);
 
 const [thankYouIsDisplayed, setThankYouIsDisplayed] = useState(false);
 
