@@ -1,13 +1,13 @@
 export const pageLocator = ({
-  locationId,
+  targetElementId,
   yOffsetValue,
 }: {
-  locationId: string;
+  targetElementId: string;
   yOffsetValue: number;
 }) => {
   let timeoutId = -1;
     timeoutId = window.setTimeout(() => {
-      const section = document.getElementById(locationId);
+      const section = document.getElementById(targetElementId);
       if (section) {
         const yOffset = yOffsetValue;
         const y =

@@ -19,7 +19,7 @@ const BookALesson = () => {
      const location = useLocation();
 
 useEffect(() => {
-pageLocator({ locationId: "lesson", yOffsetValue: -30 });
+pageLocator({ targetElementId: "lesson", yOffsetValue: -30 });
 }, [location]);
 
 const [thankYouIsDisplayed, setThankYouIsDisplayed] = useState(false);

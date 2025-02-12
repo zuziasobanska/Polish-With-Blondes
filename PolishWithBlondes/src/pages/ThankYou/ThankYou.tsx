@@ -14,7 +14,7 @@ const ThankYou = () => {
 const navigate = useNavigate()
 
 useEffect(() => {
-pageLocator({ locationId: "thankyou", yOffsetValue: -10 });
+pageLocator({ targetElementId: "thankyou", yOffsetValue: -10 });
 }, [location]);
 
       const handleClickTwo = () => {
