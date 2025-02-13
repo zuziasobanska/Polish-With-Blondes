@@ -11,6 +11,7 @@ import { TeacherName } from '../../types';
 import LessonTeachers from '../../components/LessonTeachers/LessonTeachers';
 import { TEACHERS } from "../../data";
 import { pageLocator } from '../../functions';
+import KasiaTeaching from '../../assets/kasia_teaching.mov'
 
 const navigateState = { state: { title: "Thank you", subtitle: "Congrats on taking the first step in your language learning journey! We will get back to you with available times within 48h", actionOne: "Check out our shop with worksheets and listening practice, you can also claim some for free!", buttonOne: "Worksheets", actionTwo: "Subscribe to our monthly Polish Notes Newsletter if you haven't already  💌", buttonTwo: "Subscribe", actionThree: "In the meantime, you can watch our Polish Grammar Cases Explained playlist to begin your learning process", buttonThree: "Playlist", iconOne:"src/assets/worksheet-icon.svg", iconTwo: "src/assets/mail-svgrepo-com.svg", iconThree: "src/assets/youtube-icon.svg", buttonLinkOne: "https://buymeacoffee.com/polishwithblnds/extras", buttonLinkTwo: "/#newsletter", buttonLinkThree: "https://www.youtube.com/watch?v=8EYQ-ozPRUE&list=PLdBAHfZCoj9KX_kswtFSlxGGTIyATifcB" } }
 
@@ -143,7 +144,13 @@ const [thankYouIsDisplayed, setThankYouIsDisplayed] = useState(false);
 
 
   return (
-    <><div className="booklesson-outer-container" id="lesson">
+    <>    
+    <div className="booklesson-video-container">
+      <div className="booklesson-video-overlay"></div>
+  <video src={KasiaTeaching} className="booklesson-video" autoPlay loop muted />
+  <h1 className="booklesson-video-text">Book a private class</h1>
+</div>
+    <div className="booklesson-outer-container" id="lesson">
         <div className="container">
           <FormDescription
             titleContent="Request a lesson"
