@@ -7,3 +7,5 @@ export type Teacher = {
   email: string;
   lessonDescription: string;
 };
+
+export type AvailableDay = { teacherName: TeacherName; start: Date; end: Date };

@@ -4,8 +4,6 @@ import { NewsletterSection } from '../components/NewsletterSection/NewsletterSec
 import { Hero } from '../components/Hero/Hero';
 
 const Home = () => {
-
-
   return (
     <>
       <Hero />

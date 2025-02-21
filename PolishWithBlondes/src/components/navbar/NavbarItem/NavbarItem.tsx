@@ -1,17 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import './NavbarItem.scss';
+import { FC } from 'react';
 
 interface NavbarItemProps {
-  to: string; 
+  to: string;
   content: React.ReactNode;
   type: 'a' | 'NavLink';
 }
 
-export const NavbarItem: React.FC<NavbarItemProps> = ({
-  to,
-  content,
-  type,
-}) => {
+export const NavbarItem: FC<NavbarItemProps> = ({ to, content, type }) => {
   return (
     <li>
       {type === 'a' ? (

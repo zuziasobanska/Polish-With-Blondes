@@ -15,7 +15,7 @@
   text-transform: uppercase;
   color: white;
   position: absolute;
-    top: 50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 1500px;
@@ -25,24 +25,23 @@
 
 @media (max-width: 730px) {
   .booklesson-video-text {
-  font-size: 40px;
-}
+    font-size: 40px;
+  }
 }
 @media (max-width: 484px) {
   .booklesson-video-text {
-  font-size: 25px;
+    font-size: 25px;
+  }
 }
-}
-
 
 .booklesson-video-overlay {
-    position: absolute;
-      width: 100%;
+  position: absolute;
+  width: 100%;
   height: 100%;
-      top: 0;
+  top: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .booklesson-outer-container {
@@ -75,7 +74,10 @@
       justify-content: space-around;
     }
   }
-
+  .selected-time {
+    font-size: 14.5px;
+    margin-bottom: 20px;
+  }
   .btn {
     max-width: 450px;
     align-self: start;
@@ -209,7 +211,9 @@
   cursor: pointer;
   transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
-  box-shadow: #ededed 0 0 0 1px inset, rgba(0, 0, 0, 0.05) 0 1px 2px 0;
+  box-shadow:
+    #ededed 0 0 0 1px inset,
+    rgba(0, 0, 0, 0.05) 0 1px 2px 0;
 }
 
 label[for="Kasia"],
@@ -220,7 +224,9 @@ label[for="Zuzia"] {
 
 .radio-wrapper label:hover {
   background: rgba(0, 0, 0, 0.03);
-  box-shadow: #cfcfcf 0 0 0 1px inset, rgba(0, 0, 0, 0.1) 0 1px 2px;
+  box-shadow:
+    #cfcfcf 0 0 0 1px inset,
+    rgba(0, 0, 0, 0.1) 0 1px 2px;
 }
 
 .radio-wrapper input {

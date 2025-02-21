@@ -1,0 +1,145 @@
+.day-container {
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  border-left: 1px solid #e5e8ed;
+  border-bottom: 1px solid #e5e8ed;
+}
+
+.available-day {
+  background-color: rgba(215, 242, 203, 0.5);
+  z-index: 0;
+  position: relative;
+}
+.available-day:hover {
+  cursor: pointer;
+}
+
+.blank {
+  cursor: default;
+  background-color: var(--color-light-bg);
+}
+
+.day-number {
+  font-size: 16px;
+  font-family: var(--font-family);
+  padding-top: 10px;
+  z-index: 2;
+  left: 50%;
+}
+
+.hours-container {
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-hours {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  align-self: flex-end;
+}
+.close-hours:hover {
+  cursor: pointer;
+}
+
+.hours-title {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #e5e8ed;
+  padding-bottom: 10px;
+}
+.hours {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 20px;
+  height: 300px;
+}
+.hour {
+  font-family: var(--font-family);
+  background-color: rgba(215, 242, 203, 0.8);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  border-radius: 5px;
+  margin: 5px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hour:hover {
+  cursor: pointer;
+}
+
+.hour-selected {
+  background-color: rgba(151, 220, 121, 0.8);
+}
+.hours-footer {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e5e8ed;
+  padding-top: 15px;
+}
+
+.hour-button {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1066px) {
+  .day-container {
+    width: 110px;
+    height: 110px;
+    font-size: 12px;
+    padding: 5px;
+  }
+  .day-number {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 779px) {
+  .day-container {
+    width: 70px;
+    height: 70px;
+    font-size: 12px;
+    padding: 5px;
+  }
+  .day-number {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 563px) {
+  .hour {
+    width: 100px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 493px) {
+  .day-container {
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+    padding: 5px;
+  }
+  .day-number {
+    font-size: 16px;
+  }
+}

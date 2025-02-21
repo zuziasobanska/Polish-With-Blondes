@@ -6,7 +6,9 @@
   padding: 40px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px var(--box-shadow);
-  transition: color 0.3s, transform 0.3s;
+  transition:
+    color 0.3s,
+    transform 0.3s;
   transition: margin 0.3s ease;
   width: 220px;
   height: 300px;

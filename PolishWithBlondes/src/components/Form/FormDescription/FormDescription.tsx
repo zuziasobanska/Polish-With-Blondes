@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import './FormDescription.scss';
 
 interface FormDescriptionProps {
@@ -11,7 +12,7 @@ interface FormDescriptionProps {
   extraContent?: string;
 }
 
-const FormDescription: React.FC<FormDescriptionProps> = ({
+const FormDescription: FC<FormDescriptionProps> = ({
   nlColumnLeft,
   nlTitle,
   nlSubheading,
@@ -31,9 +32,7 @@ const FormDescription: React.FC<FormDescriptionProps> = ({
       <p className={`description ${nlDescription || ''}`}>
         {descriptionContent}
       </p>
-      {extraContent !== "" && <p className="extracontent">{extraContent}
-</p>}
-     
+      {extraContent !== '' && <p className="extracontent">{extraContent}</p>}
     </div>
   );
 };
