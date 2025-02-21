@@ -1,6 +1,7 @@
 import './YoutubeList.scss';
 import { useEffect, useState } from 'react';
 import youtubeIcon from '../../assets/youtube-icon.svg'
+import { API_KEY, PLAYLIST_ID } from '../../data';
 
 interface Video {
   id: string;
@@ -19,8 +20,7 @@ interface Video {
 
 export const YoutubeList = () => {
   const [videos, setVideos] = useState<Video[]>([]);
-  const API_KEY = import.meta.env.VITE_API_KEY;
-  const PLAYLIST_ID = "UUlGR6kVvAznpGs_50QlosLQ";
+
 
 
   useEffect(() => {

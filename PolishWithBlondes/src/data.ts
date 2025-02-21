@@ -35,3 +35,6 @@ export const IZA: Teacher = {
 };
 
 export const TEACHERS: Teacher[] = [KASIA, IZA, ZUZIA];
+
+export const API_KEY = import.meta.env.VITE_API_KEY;
+export const PLAYLIST_ID = 'UUlGR6kVvAznpGs_50QlosLQ';
