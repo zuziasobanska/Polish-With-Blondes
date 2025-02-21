@@ -3,13 +3,7 @@
 }
 
 @media (max-width: 1000px) {
-  .navbar ul {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-    width: 50px;
-  }
+
   .hero {
     flex-direction: column;
   }

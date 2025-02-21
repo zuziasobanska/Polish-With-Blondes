@@ -2,41 +2,58 @@ import './navbar.scss';
 import { NavbarItem } from './NavbarItem/NavbarItem';
 import logo from '../../assets/logo1.png';
 import hamburger from '../../assets/hamburger.png';
+import NavbarItems from './NavbarItems/NavbarItems';
+import { useEffect, useState } from 'react';
 
 export const Navbar = () => {
+
+ const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+
+     useEffect(() => {
+        const onResize = () => {
+            setIsMobile(window.innerWidth <= 480);
+        }
+
+        window.addEventListener("resize", onResize);
+    
+        return () => {
+            window.removeEventListener("resize", onResize);
+        }
+    }, []);
+
+         useEffect(() => {
+          if (!isMobile) {
+            setBurgerMenuVisible(false)
+          }
+    }, [isMobile]);
+
+
+  const [burgerMenuVisible, setBurgerMenuVisible] = useState(false)
+  const handleBurgerClick = () => {
+    if (!burgerMenuVisible) {
+      setBurgerMenuVisible(true);
+    }
+    else {
+      setBurgerMenuVisible(false);
+    }
+  }
+
+
   return (
     <nav className="navbar">
-      <ul>
-        <>
-          <NavbarItem
+      <NavbarItem
             to="/"
             content={<img src={logo} alt="Logo" className="logo" />}
             type="NavLink"
           />
-          <NavbarItem to="/lessons" content="Book a lesson" type="NavLink" />
-          <NavbarItem
-            to="https://buymeacoffee.com/polishwithblnds/extras"
-            content="Worksheets"
-            type="a"
-          />
-          <NavbarItem
-            to="https://www.youtube.com/@polishwithblondes/podcasts"
-            content="Podcast"
-            type="a"
-          />
-          <NavbarItem
-            to="https://buymeacoffee.com/polishwithblnds"
-            content="Buy us a coffee"
-            type="a"
-          />
-          <NavbarItem to="/about" content="About us" type="NavLink" />
-          <NavbarItem to="/contact" content="Contact" type="NavLink" />
-        </>
+      <ul>
+       <NavbarItems />
       </ul>
-
-      <div className="hamburger">
+      <div className="hamburger" onClick={handleBurgerClick}>
         <img src={hamburger} />
       </div>
+      <div className='hamburger-menu'></div>
+      {burgerMenuVisible && <NavbarItems />}
     </nav>
   );
 };

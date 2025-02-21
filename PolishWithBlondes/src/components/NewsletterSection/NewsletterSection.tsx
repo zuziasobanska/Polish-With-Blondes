@@ -9,7 +9,7 @@ export const NewsletterSection = () => {
   const location = useLocation();
 
 useEffect(() => {
-const timeoutId = pageLocator({ locationId: "newsletter", yOffsetValue: -30 });
+const timeoutId = pageLocator({ targetElementId: "newsletter", yOffsetValue: -30 });
 
  return () => {
         clearTimeout(timeoutId); 

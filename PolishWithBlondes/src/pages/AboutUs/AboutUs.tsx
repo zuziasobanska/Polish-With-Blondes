@@ -4,7 +4,7 @@ import { TEACHERS } from "../../data";
 
 const AboutUs = () => {
   return (
-    <div className="about-us-container">{TEACHERS.map((teacher) => <AboutMe  title={teacher.name} description={teacher.description} pic={teacher.img} />)}
+    <div className="about-us-container">{TEACHERS.map((teacher, index) => <AboutMe  title={teacher.name} description={teacher.description} pic={teacher.img} key={index} />)}
     </div>
     )
 };

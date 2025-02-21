@@ -11,7 +11,7 @@ export const KASIA: Teacher = {
   img: kasiaPic,
   name: 'Kasia',
   lessonDescription:
-    'My lessons include easy grammar explanations and a lot of speaking practice. I prepare my own teaching materials which we can then use in class. I am into learning languages myself so I think I have a good understanding of other learners’ needs and difficulties.',
+    'My lessons include easy grammar explanations and a lot of speaking practice. I prepare my own teaching materials which we can then use in class. I am into learning languages myself so I think I have a good understanding of other learners’ needs and difficulties. If you like, we can have purely conversational classes as well.',
 };
 
 export const ZUZIA: Teacher = {
@@ -31,7 +31,10 @@ export const IZA: Teacher = {
   img: zuziaPic,
   name: 'Iza',
   lessonDescription:
-    'I prepare my own teaching materials which we can then use in class. I am into learning languages myself so I think I have a good understanding of other learners’ needs and difficulties. Apart from teaching, some of my passions include painting and glass fusing.',
+    'If you like, we can have purely conversational classes as well.',
 };
 
 export const TEACHERS: Teacher[] = [KASIA, IZA, ZUZIA];
+
+export const API_KEY = import.meta.env.VITE_API_KEY;
+export const PLAYLIST_ID = 'UUlGR6kVvAznpGs_50QlosLQ';
