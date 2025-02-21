@@ -2,7 +2,7 @@
 import zuziaPic from '../src/assets/zuzia-aboutme.png';
 import kasiaPic from '../src/assets/kasia-aboutme.png';
 
-import { Teacher } from './types';
+import { AvailableDay, Teacher } from './types';
 
 export const KASIA: Teacher = {
   description:
@@ -38,3 +38,56 @@ export const TEACHERS: Teacher[] = [KASIA, IZA, ZUZIA];
 
 export const API_KEY = import.meta.env.VITE_API_KEY;
 export const PLAYLIST_ID = 'UUlGR6kVvAznpGs_50QlosLQ';
+export const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+export const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+// export const hardcodedHours = ['10:00 - 10:45', '11:00 - 11:45'];
+
+export const hardcodedHours = ['10:00', '14:00'];
+
+export const availability: AvailableDay[] = [
+  {
+    teacherName: 'Iza',
+    start: new Date(2025, 2, 20, 13, 0),
+    end: new Date(2025, 2, 20, 15, 0),
+  },
+  {
+    teacherName: 'Kasia',
+    start: new Date(2025, 2, 21, 10, 0),
+    end: new Date(2025, 2, 21, 11, 0),
+  },
+  {
+    teacherName: 'Zuzia',
+    start: new Date(2025, 2, 22, 8, 0),
+    end: new Date(2025, 2, 22, 15, 0),
+  },
+  {
+    teacherName: 'Zuzia',
+    start: new Date(2025, 2, 23, 10, 0),
+    end: new Date(2025, 2, 23, 16, 0),
+  },
+  {
+    teacherName: 'Zuzia',
+    start: new Date(2025, 2, 23, 18, 0),
+    end: new Date(2025, 2, 23, 20, 0),
+  },
+  {
+    teacherName: 'Iza',
+    start: new Date(2025, 2, 23, 13, 0),
+    end: new Date(2025, 2, 20, 15, 0),
+  },
+];

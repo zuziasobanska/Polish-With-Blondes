@@ -1,11 +1,9 @@
 import { InfoCard } from './InfoCard/InfoCard';
 import './InfoSection.scss';
-import GrammarIcon from '../../assets/grammar-icon.svg'
-import worksheetIcon from '../../assets/worksheet-icon.svg'
-import podcastIcon from '../../assets/podcast-icon.svg'
-import convIcon from '../../assets/conv-icon.svg'
-
-
+import GrammarIcon from '../../assets/grammar-icon.svg';
+import worksheetIcon from '../../assets/worksheet-icon.svg';
+import podcastIcon from '../../assets/podcast-icon.svg';
+import convIcon from '../../assets/conv-icon.svg';
 
 export const InfoSection = () => {
   return (
@@ -21,29 +19,27 @@ export const InfoSection = () => {
             description="Boost your confidence in speaking Polish blabla blabla"
             icon={convIcon}
             newWindow={false}
-            redirect='/lessons'
+            redirect="/lessons"
           />
           <InfoCard
             title="Worksheets"
             description="Ready to download, some available for free! and blab blabla"
             icon={worksheetIcon}
-                                    redirect='https://buymeacoffee.com/polishwithblnds/extras'
+            redirect="https://buymeacoffee.com/polishwithblnds/extras"
             newWindow={true}
-
           />
           <InfoCard
             title="General Polish lessons"
             description="Finally understand Polish grammar! blabla blabla"
             icon={GrammarIcon}
-                        redirect='/lessons'
+            redirect="/lessons"
             newWindow={false}
-
           />
           <InfoCard
             title="Podcast"
             description="Listen and learn on the go and blabla blablablabla blabla "
             icon={podcastIcon}
-                        redirect='https://www.youtube.com/@polishwithblondes/podcasts'
+            redirect="https://www.youtube.com/@polishwithblondes/podcasts"
             newWindow={true}
           />
         </div>

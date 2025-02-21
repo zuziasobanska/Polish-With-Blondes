@@ -1,13 +1,12 @@
 import './InfoCard.scss';
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom';
 
 export const InfoCard = ({
   title,
   description,
   icon,
   redirect,
-  newWindow
+  newWindow,
 }: {
   title: string;
   description: string;
@@ -15,10 +14,17 @@ export const InfoCard = ({
   redirect: string;
   newWindow: boolean;
 }) => {
-      const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    <div className="card-container" onClick={() => newWindow ? window.open(redirect, "_blank", "noopener,noreferrer") : navigate(redirect)}>
+    <div
+      className="card-container"
+      onClick={() =>
+        newWindow
+          ? window.open(redirect, '_blank', 'noopener,noreferrer')
+          : navigate(redirect)
+      }
+    >
       <img className="card-icon" src={icon} />
       <h2 className="card-title">{title}</h2>
       <p className="card-description">{description}</p>

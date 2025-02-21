@@ -1,0 +1,5 @@
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-right: 1px solid #e5e8ed;
+}

@@ -1,21 +1,23 @@
 import './NewsletterSection.scss';
 import FormDescription from '../Form/FormDescription/FormDescription';
 import FormContent from '../Form/FormContent/FormContent';
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { pageLocator } from '../../functions';
 
 export const NewsletterSection = () => {
   const location = useLocation();
 
-useEffect(() => {
-const timeoutId = pageLocator({ targetElementId: "newsletter", yOffsetValue: -30 });
+  useEffect(() => {
+    const timeoutId = pageLocator({
+      locationId: 'newsletter',
+      yOffsetValue: -30,
+    });
 
- return () => {
-        clearTimeout(timeoutId); 
-      };
-}, [location]);
-
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [location]);
 
   return (
     <div className="newsletter-outer-container" id="newsletter">

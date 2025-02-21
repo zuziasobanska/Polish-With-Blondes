@@ -25,7 +25,6 @@ function App() {
           <Route path="/lessons" element={<BookALesson />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/thankyou" element={<ThankYou />} />
-
         </Routes>
 
         <Footer />
