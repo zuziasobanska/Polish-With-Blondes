@@ -1,8 +1,6 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { Navbar } from './components/Navbar/Navbar';
 import { BackToTop } from './components/BackToTop/BackToTop';
-import { Footer } from './components/Footer/Footer';
 import './styles/reset.scss';
 import './styles/global.scss';
 import './App.scss';
@@ -12,6 +10,8 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import BookALesson from './pages/BookALesson/BookALesson';
 import Contact from './pages/Contact/Contact';
 import ThankYou from './pages/ThankYou/ThankYou';
+import Navbar from './components/navbar/Navbar';
+import { Footer } from './components/footer/FooterComponent';
 
 function App() {
   return (

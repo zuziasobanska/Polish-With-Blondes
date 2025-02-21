@@ -1,5 +1,5 @@
+import { NavbarItem } from '../navbar/NavbarItem/NavbarItem';
 import './Footer.scss';
-import { NavbarItem } from '../Navbar/NavbarItem/NavbarItem';
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 export const Footer = () => {
