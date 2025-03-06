@@ -49,3 +49,24 @@ export const pageLocator = ({
 
   return timeoutId;
 };
+
+// const generateTimeSlots = (availableDay: AvailableDay) => {
+//   const startMinutes =
+//     availableDay.start.getHours() * 60 + availableDay.start.getMinutes();
+//   const endMinutes =
+//     availableDay.end.getHours() * 60 + availableDay.end.getMinutes() - 30;
+//   // const startMinutes =
+//   //   availableDay.start.getHours() * 60 + availableDay.start.getMinutes();
+//   // const endMinutes =
+//   //   availableDay.end.getHours() * 60 + availableDay.end.getMinutes() - 30;
+
+//   return Array.from(
+//     { length: Math.floor((endMinutes - startMinutes) / 15) + 1 },
+//     (_, index) => {
+//       const totalMinutes = startMinutes + index * 15;
+//       const hours = Math.floor(totalMinutes / 60);
+//       const minutes = totalMinutes % 60;
+//       return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+//     }
+//   );
+// };

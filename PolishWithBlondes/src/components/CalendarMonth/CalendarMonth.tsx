@@ -2,14 +2,28 @@ import './CalendarMonth.scss';
 import CalendarDay from '../CalendarDay/CalendarDay';
 import { FC, useEffect, useState } from 'react';
 import { MONTHS } from '../../data';
-import { availability } from '../../data';
 import { TeacherName } from '../../types';
+import { toZonedTime } from 'date-fns-tz';
 
 interface CalendarMonthProps {
   selectedTeacher: TeacherName;
   month: number;
-  selectedTimeSetter: React.Dispatch<React.SetStateAction<Date | null>>;
+  selectedTimeSetter: React.Dispatch<
+    React.SetStateAction<{ start: Date; chosenDate: string } | null>
+  >;
   currentMonthNumber: number;
+}
+
+interface Quarter {
+  isTaken: boolean;
+  start: Date;
+  id: number;
+}
+
+interface AvailableDay {
+  teacherName: TeacherName;
+  date: Date;
+  quarters: Quarter[];
 }
 
 const CalendarMonth: FC<CalendarMonthProps> = ({
@@ -18,6 +32,8 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
   selectedTeacher,
   currentMonthNumber,
 }) => {
+  const [availabilityData, setAvailabilityData] = useState<AvailableDay[]>([]);
+
   const date = new Date();
   const firstDayObject = new Date(
     date.getFullYear(),
@@ -26,14 +42,39 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
   );
 
   const firstDayIndex = firstDayObject.getDay() - 1;
-
   const daysInMonth = new Date(
     date.getFullYear(),
     date.getMonth() + 1 + month,
     0
   ).getDate();
-
   const [visibleDaySquares, setVisibleDaySquares] = useState(35);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('data.json');
+      const data: AvailableDay[] = await response.json();
+
+      setAvailabilityData(
+        data.map((day) => ({
+          ...day,
+          date: new Date(day.date),
+          quarters: day.quarters.map((quarter) => {
+            const userTimeZone =
+              Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            const localDate = toZonedTime(
+              new Date(quarter.start),
+              userTimeZone
+            );
+
+            return { ...quarter, start: localDate };
+          }),
+        }))
+      );
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     if (firstDayIndex === 5 && daysInMonth === 31) {
@@ -56,7 +97,9 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
   };
 
   const filterAvailabilityForTeacher = (teacherName: TeacherName) => {
-    return availability.filter((object) => object.teacherName === teacherName);
+    return availabilityData.filter(
+      (object) => object.teacherName === teacherName
+    );
   };
 
   const aviailabilityForTeacher = filterAvailabilityForTeacher(selectedTeacher);
@@ -64,11 +107,9 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
   const getAvailableDayForCalendarDay = (dayOfMonth: number | undefined) => {
     return aviailabilityForTeacher.find(
       (availableDay) =>
-        availableDay.start.getDate() === dayOfMonth &&
-        availableDay.start.getMonth() === currentMonthNumber + month
+        availableDay.date.getDate() === dayOfMonth &&
+        availableDay.date.getMonth() === currentMonthNumber + month
     );
-    //this will return either the object or undefined, depending on if we had added avail. for
-    //that day.
   };
 
   const calendarDaysArray = Array.from(
@@ -76,15 +117,11 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
     (_, index) => (
       <CalendarDay
         key={index}
-        index={index}
         day={getDayofMonth(index)}
         isBlank={getDayofMonth(index) === undefined}
         availableDay={getAvailableDayForCalendarDay(getDayofMonth(index))}
-        // status={isDayAvailable(getDayofMonth(index) ?? 0)} // jesli getDayOfMonth(index) jest undefined to uzyj 0
         chosenDate={getChosenDate(index)}
-        month={month}
         selectedTimeSetter={selectedTimeSetter}
-        getDayofMonth={getDayofMonth}
       />
     )
   );

@@ -58,8 +58,13 @@ const BookALesson = () => {
   const [selectedTeacher, setSelectedTeacher] = useState<TeacherName | ''>('');
   const [selectedLength, setSelectedLength] = useState('');
   const [optionalMessage, setOptionalMessage] = useState('');
-  const [selectedTime, setSelectedTime] = useState<Date | null>(null);
-  // const [selectedTime, setSelectedTime] = useState('');
+
+  const [selectedTime, setSelectedTime] = useState<{
+    start: Date;
+    chosenDate: string;
+  } | null>(null);
+
+  const [calendarMessage, setCalendarMessage] = useState('');
 
   const [nameError, setNameError] = useState(false);
   const nameErrorMessage = 'The name field is required.';
@@ -88,6 +93,7 @@ const BookALesson = () => {
 
   const handleTeacherChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedTeacher(event.target.value as TeacherName);
+    setCalendarMessage('Scroll down to see the calendar');
   };
 
   const handleLengthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -200,8 +206,8 @@ const BookALesson = () => {
           />
           <div className="booklesson-form">
             <div className="booklesson-action">
-              Fill out this form and we will get back to you with available
-              times
+              Fill out this form and we will get back to you to confirm your
+              chosen day and time
             </div>
             <form onSubmit={handleSubmit}>
               <div className="radio-outer-container">
@@ -233,9 +239,6 @@ const BookALesson = () => {
                   <label htmlFor="Zuzia">Zuzia</label>
                 </div>
               </div>
-              <div className="selected-time">
-                Your selected time: {selectedTime?.getDate()}
-              </div>
               <div className="radio-outer-container">
                 <div className="choose">Choose your lesson length:</div>
                 <div className="radio-wrapper">
@@ -256,6 +259,35 @@ const BookALesson = () => {
                   />
                   <label htmlFor="45">45 minutes</label>
                 </div>
+              </div>
+              <div className="selected-time">
+                {!selectedTime ? (
+                  calendarMessage
+                ) : (
+                  <p>
+                    Your selected time:{' '}
+                    <b className="selected-time-inner">
+                      {`${selectedTime.chosenDate}, `}
+                      {''}
+                      {selectedTime.start.toLocaleTimeString([], {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false,
+                      })}
+                      <b>
+                        {selectedLength !== '' &&
+                          ` - ${new Date(
+                            selectedTime.start.getTime() +
+                              Number(selectedLength) * 60000
+                          ).toLocaleTimeString([], {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: false,
+                          })}`}
+                      </b>
+                    </b>
+                  </p>
+                )}
               </div>
 
               <input

@@ -2,7 +2,7 @@
 import zuziaPic from '../src/assets/zuzia-aboutme.png';
 import kasiaPic from '../src/assets/kasia-aboutme.png';
 
-import { AvailableDay, Teacher } from './types';
+import { Teacher } from './types';
 
 export const KASIA: Teacher = {
   description:
@@ -55,39 +55,123 @@ export const MONTHS = [
 
 export const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-// export const hardcodedHours = ['10:00 - 10:45', '11:00 - 11:45'];
+// export const marchAvailability: AvailableDay[] = [
+//   {
+//     teacherName: 'Zuzia',
+//     date: new Date(2025, 2, 1, 0, 0),
+//     quarters: [
+//       { isTaken: false, start: new Date(2025, 2, 1, 11, 30), id: 1 },
+//       { isTaken: false, start: new Date(2025, 2, 1, 11, 45) },
+//       { isTaken: false, start: new Date(2025, 2, 1, 12, 0) },
+//       { isTaken: false, start: new Date(2025, 2, 1, 12, 15) },
+//       { isTaken: false, start: new Date(2025, 2, 1, 12, 30) },
+//       { isTaken: false, start: new Date(2025, 2, 1, 12, 45) },
+//       { isTaken: false, start: new Date(2025, 2, 1, 15, 30) },
+//       { isTaken: false, start: new Date(2025, 2, 1, 15, 45) },
+//       { isTaken: false, start: new Date(2025, 2, 1, 16, 0) },
+//     ],
+//   },
+//   {
+//     teacherName: 'Zuzia',
+//     date: new Date(2025, 2, 3, 0, 0),
+//     quarters: [
+//       { isTaken: false, start: new Date(2025, 2, 3, 11, 30) },
+//       { isTaken: false, start: new Date(2025, 2, 3, 11, 45) },
+//       { isTaken: false, start: new Date(2025, 2, 3, 12, 0) },
+//       { isTaken: false, start: new Date(2025, 2, 3, 12, 15) },
+//     ],
+//   },
+//   {
+//     teacherName: 'Iza',
+//     date: new Date(2025, 2, 4, 0, 0),
+//     quarters: [
+//       { isTaken: false, start: new Date(2025, 2, 4, 11, 30) },
+//       { isTaken: false, start: new Date(2025, 2, 4, 11, 45) },
+//       { isTaken: false, start: new Date(2025, 2, 4, 12, 0) },
+//       { isTaken: false, start: new Date(2025, 2, 4, 12, 15) },
+//     ],
+//   },
+//   {
+//     teacherName: 'Kasia',
+//     date: new Date(2025, 2, 8, 0, 0),
+//     quarters: [
+//       { isTaken: false, start: new Date(2025, 2, 8, 11, 30) },
+//       { isTaken: false, start: new Date(2025, 2, 8, 11, 45) },
+//       { isTaken: false, start: new Date(2025, 2, 8, 12, 0) },
+//       { isTaken: false, start: new Date(2025, 2, 8, 12, 15) },
+//     ],
+//   },
+// ];
+// export const availability: AvailableDay[] = [
+//   {
+//     teacherName: 'Iza',
+//     intervals: [
+//       {
+//         start: new Date(2025, 2, 20, 13, 0),
+//         end: new Date(2025, 2, 20, 15, 0),
+//       },
+//       {
+//         start: new Date(2025, 2, 20, 16, 0),
+//         end: new Date(2025, 2, 20, 18, 0),
+//       },
+//       {
+//         start: new Date(2025, 2, 20, 19, 0),
+//         end: new Date(2025, 2, 20, 20, 0),
+//       },
+//     ],
+//   },
+//   {
+//     teacherName: 'Zuzia',
+//     intervals: [
+//       {
+//         start: new Date(2025, 1, 20, 11, 0),
+//         end: new Date(2025, 1, 20, 15, 0),
+//       },
+//       {
+//         start: new Date(2025, 1, 20, 16, 0),
+//         end: new Date(2025, 1, 20, 18, 0),
+//       },
+//       {
+//         start: new Date(2025, 1, 21, 10, 0),
+//         end: new Date(2025, 1, 21, 15, 0),
+//       },
+//       {
+//         start: new Date(2025, 1, 21, 19, 0),
+//         end: new Date(2025, 1, 21, 20, 0),
+//       },
+//     ],
+//   },
+// ];
 
-export const hardcodedHours = ['10:00', '14:00'];
-
-export const availability: AvailableDay[] = [
-  {
-    teacherName: 'Iza',
-    start: new Date(2025, 2, 20, 13, 0),
-    end: new Date(2025, 2, 20, 15, 0),
-  },
-  {
-    teacherName: 'Kasia',
-    start: new Date(2025, 2, 21, 10, 0),
-    end: new Date(2025, 2, 21, 11, 0),
-  },
-  {
-    teacherName: 'Zuzia',
-    start: new Date(2025, 2, 22, 8, 0),
-    end: new Date(2025, 2, 22, 15, 0),
-  },
-  {
-    teacherName: 'Zuzia',
-    start: new Date(2025, 2, 23, 10, 0),
-    end: new Date(2025, 2, 23, 16, 0),
-  },
-  {
-    teacherName: 'Zuzia',
-    start: new Date(2025, 2, 23, 18, 0),
-    end: new Date(2025, 2, 23, 20, 0),
-  },
-  {
-    teacherName: 'Iza',
-    start: new Date(2025, 2, 23, 13, 0),
-    end: new Date(2025, 2, 20, 15, 0),
-  },
-];
+// export const availability: AvailableDay[] = [
+//   {
+//     teacherName: 'Iza',
+//     start: new Date(2025, 2, 20, 13, 0),
+//     end: new Date(2025, 2, 20, 15, 0),
+//   },
+//   {
+//     teacherName: 'Kasia',
+//     start: new Date(2025, 2, 21, 10, 0),
+//     end: new Date(2025, 2, 21, 11, 0),
+//   },
+//   {
+//     teacherName: 'Zuzia',
+//     start: new Date(2025, 2, 22, 8, 0),
+//     end: new Date(2025, 2, 22, 15, 0),
+//   },
+//   {
+//     teacherName: 'Zuzia',
+//     start: new Date(2025, 2, 23, 10, 0),
+//     end: new Date(2025, 2, 23, 16, 0),
+//   },
+//   {
+//     teacherName: 'Zuzia',
+//     start: new Date(2025, 2, 23, 18, 0),
+//     end: new Date(2025, 2, 23, 20, 0),
+//   },
+//   {
+//     teacherName: 'Iza',
+//     start: new Date(2025, 2, 23, 13, 0),
+//     end: new Date(2025, 2, 20, 15, 0),
+//   },
+// ];
