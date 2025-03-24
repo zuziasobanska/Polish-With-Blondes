@@ -10,11 +10,21 @@ export type Teacher = {
 
 export type AvailableDay = {
   teacherName: TeacherName;
-  date: Date;
-  quarters: Quarter[];
+  date: string;
+  id: number;
 };
 
 export type Quarter = {
-  start: Date;
+  start: string;
   isTaken: boolean;
+  id: number;
+  dayId: number;
+};
+
+export type SelectedType = {
+  quarterId: number;
+  start: Date;
+  chosenDate: string;
+  nextQuarterId: number;
+  thirdQuartedId?: number;
 };

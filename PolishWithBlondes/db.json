@@ -1,0 +1,152 @@
+{
+  "days": [
+    {
+      "id": 1,
+      "teacherName": "Zuzia",
+      "date": "2025-03-01T00:00:00.000"
+    },
+    {
+      "id": 2,
+      "teacherName": "Zuzia",
+      "date": "2025-03-03T00:00:00.000"
+    },
+    {
+      "id": 3,
+      "teacherName": "Iza",
+      "date": "2025-03-04T00:00:00.000"
+    },
+    {
+      "id": 4,
+      "teacherName": "Kasia",
+      "date": "2025-03-08T00:00:00.000"
+    }
+  ],
+  "quarters": [
+    {
+      "id": 11111111,
+      "dayId": 1,
+      "isTaken": true,
+      "start": "2025-03-01T11:30:00.000"
+    },
+    {
+      "id": 211111,
+      "dayId": 1,
+      "isTaken": true,
+      "start": "2025-03-01T11:45:00.000"
+    },
+    {
+      "id": 3111111,
+      "dayId": 1,
+      "isTaken": false,
+      "start": "2025-03-01T12:00:00.000"
+    },
+    {
+      "id": 41111111,
+      "dayId": 1,
+      "isTaken": true,
+      "start": "2025-03-01T12:15:00.000"
+    },
+    {
+      "id": 511,
+      "dayId": 1,
+      "isTaken": true,
+      "start": "2025-03-01T12:30:00.000"
+    },
+    {
+      "id": 61111,
+      "dayId": 1,
+      "isTaken": true,
+      "start": "2025-03-01T12:45:00.000"
+    },
+    {
+      "id": 71,
+      "dayId": 1,
+      "isTaken": false,
+      "start": "2025-03-01T15:30:00.000"
+    },
+    {
+      "id": 8,
+      "dayId": 1,
+      "isTaken": false,
+      "start": "2025-03-01T15:45:00.000"
+    },
+    {
+      "id": 911111111,
+      "dayId": 1,
+      "isTaken": false,
+      "start": "2025-03-01T16:00:00.000"
+    },
+    {
+      "id": 10111111,
+      "dayId": 2,
+      "isTaken": false,
+      "start": "2025-03-03T11:30:00.000"
+    },
+    {
+      "id": 11,
+      "dayId": 2,
+      "isTaken": false,
+      "start": "2025-03-03T11:45:00.000"
+    },
+    {
+      "id": 1211111,
+      "dayId": 2,
+      "isTaken": false,
+      "start": "2025-03-03T12:00:00.000"
+    },
+    {
+      "id": 131111,
+      "dayId": 2,
+      "isTaken": false,
+      "start": "2025-03-03T12:15:00.000"
+    },
+    {
+      "id": 141,
+      "dayId": 3,
+      "isTaken": false,
+      "start": "2025-03-04T11:30:00.000"
+    },
+    {
+      "id": 1511,
+      "dayId": 3,
+      "isTaken": false,
+      "start": "2025-03-04T11:45:00.000"
+    },
+    {
+      "id": 161111,
+      "dayId": 3,
+      "isTaken": false,
+      "start": "2025-03-04T12:00:00.000"
+    },
+    {
+      "id": 171,
+      "dayId": 3,
+      "isTaken": false,
+      "start": "2025-03-04T12:15:00.000"
+    },
+    {
+      "id": 18111111,
+      "dayId": 4,
+      "isTaken": false,
+      "start": "2025-03-08T11:30:00.000"
+    },
+    {
+      "id": 191111,
+      "dayId": 4,
+      "isTaken": false,
+      "start": "2025-03-08T11:45:00.000"
+    },
+    {
+      "id": 2011111,
+      "dayId": 4,
+      "isTaken": false,
+      "start": "2025-03-08T12:00:00.000"
+    },
+    {
+      "id": 2111111111,
+      "dayId": 4,
+      "isTaken": false,
+      "start": "2025-03-08T12:15:00.000"
+    }
+  ]
+}

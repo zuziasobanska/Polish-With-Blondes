@@ -8,6 +8,7 @@
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
+    "server": "json-server --watch db.json",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

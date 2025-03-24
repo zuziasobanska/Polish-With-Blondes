@@ -5,13 +5,11 @@ import './Calendar.scss';
 import { FC, useEffect, useState } from 'react';
 import { pageLocator } from '../../functions';
 import { useLocation } from 'react-router-dom';
-import { TeacherName } from '../../types';
+import { SelectedType, TeacherName } from '../../types';
 
 interface CalendarProps {
   selectedTeacher: TeacherName;
-  selectedTimeSetter: React.Dispatch<
-    React.SetStateAction<{ start: Date; chosenDate: string } | null>
-  >;
+  selectedTimeSetter: React.Dispatch<React.SetStateAction<SelectedType | null>>;
 }
 
 const Calendar: FC<CalendarProps> = ({

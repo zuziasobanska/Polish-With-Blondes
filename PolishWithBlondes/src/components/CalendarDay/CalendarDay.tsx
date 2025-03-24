@@ -1,15 +1,13 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './CalendarDay.scss';
 import Modal from 'react-modal';
-import { AvailableDay } from '../../types';
+import { AvailableDay, Quarter, SelectedType } from '../../types';
 
 interface CalendarDayProps {
   day?: number;
   isBlank: boolean;
   chosenDate: string;
-  selectedTimeSetter: React.Dispatch<
-    React.SetStateAction<{ start: Date; chosenDate: string } | null>
-  >;
+  selectedTimeSetter: React.Dispatch<React.SetStateAction<SelectedType | null>>;
   availableDay: AvailableDay | undefined;
 }
 
@@ -20,11 +18,41 @@ const CalendarDay: FC<CalendarDayProps> = ({
   selectedTimeSetter,
   availableDay,
 }) => {
+  const [quarters, setQuarters] = useState<Quarter[]>([]);
   const [hoursAreOpen, setHoursAreOpen] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
   const [selectedHourIndex, setSelectedHourIndex] = useState<
     number | undefined
   >(undefined);
+  const [selectedQuarterIsTaken, setSelectedQuarterIsTaken] = useState(false);
+
+  useEffect(() => {
+    if (selectedQuarterIsTaken) {
+      setButtonVisible(false);
+    } else {
+      setButtonVisible(true);
+    }
+  }, [selectedQuarterIsTaken]);
+
+  useEffect(() => {
+    const fetchQuartersForDay = async (dayId: number) => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/quarters?dayId=${dayId}`
+        );
+        if (!response.ok)
+          throw new Error('Failed to fetch quarters for this day');
+        const data: Quarter[] = await response.json();
+        setQuarters(data);
+      } catch (error) {
+        console.error('Error fetching quarters:', error);
+      }
+    };
+
+    if (availableDay) {
+      fetchQuartersForDay(availableDay.id);
+    }
+  }, [availableDay]);
 
   const openHours = () => {
     document.body.style.overflow = 'hidden';
@@ -42,13 +70,28 @@ const CalendarDay: FC<CalendarDayProps> = ({
     }
   };
 
-  const handleHourClick = (currentIndex: number, timeSlot: Date) => {
-    setButtonVisible(true);
+  const handleHourClick = (
+    currentIndex: number,
+    start: string,
+    id: number,
+    isTaken: boolean,
+    nextQuarterId: number,
+    thirdQuartedId?: number
+  ) => {
+    setSelectedQuarterIsTaken(isTaken);
     setSelectedHourIndex(currentIndex);
 
-    selectedTimeSetter({ start: timeSlot, chosenDate: chosenDate });
+    selectedTimeSetter({
+      start: new Date(start),
+      chosenDate: chosenDate,
+      quarterId: id,
+      nextQuarterId,
+      // nextQuarterId: nextQuarterId
+      thirdQuartedId,
+      //same here, its an abbreviation when key and value are of the same name
+    });
+    // here we need to add information about the next two time slots (we assume they are always available (see ticket no 2 - fronted data display basing on available quarters))
   };
-
   const handleButtonClick = () => {
     closeHours();
   };
@@ -78,22 +121,30 @@ const CalendarDay: FC<CalendarDayProps> = ({
           </button>
           <h1 className="hours-title">{chosenDate}</h1>
           <ul className="hours">
-            {availableDay &&
-              availableDay.quarters.map((timeSlot, index) => (
-                <li
-                  key={index}
-                  className={`${
-                    selectedHourIndex === index ? 'hour hour-selected' : 'hour'
-                  }`}
-                  onClick={() => handleHourClick(index, timeSlot.start)}
-                >
-                  {timeSlot.start.toLocaleTimeString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: false,
-                  })}
-                </li>
-              ))}
+            {quarters.map((quarter, index, arrayOfQuarters) => (
+              <li
+                key={index}
+                className={`${
+                  selectedHourIndex === index ? 'hour hour-selected' : 'hour'
+                } ${quarter.isTaken === true && 'taken-hour'}`}
+                onClick={() =>
+                  handleHourClick(
+                    index,
+                    quarter.start,
+                    quarter.id,
+                    quarter.isTaken,
+                    arrayOfQuarters[index + 1]?.id,
+                    arrayOfQuarters[index + 2]?.id
+                  )
+                }
+              >
+                {new Date(quarter.start).toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  hour12: false,
+                })}
+              </li>
+            ))}
           </ul>
 
           {buttonVisible && (
