@@ -5,11 +5,11 @@ import './Calendar.scss';
 import { FC, useEffect, useState } from 'react';
 import { pageLocator } from '../../functions';
 import { useLocation } from 'react-router-dom';
-import { TeacherName } from '../../types';
+import { SelectedType, TeacherName } from '../../types';
 
 interface CalendarProps {
   selectedTeacher: TeacherName;
-  selectedTimeSetter: React.Dispatch<React.SetStateAction<Date | null>>;
+  selectedTimeSetter: React.Dispatch<React.SetStateAction<SelectedType | null>>;
 }
 
 const Calendar: FC<CalendarProps> = ({
@@ -27,8 +27,6 @@ const Calendar: FC<CalendarProps> = ({
       clearTimeout(timeoutId);
     };
   }, [location]);
-
-  // navigate('/thankyou#thankyou')
 
   const date = new Date();
   const currentMonth = MONTHS[date.getMonth()];

@@ -2,13 +2,12 @@ import './CalendarMonth.scss';
 import CalendarDay from '../CalendarDay/CalendarDay';
 import { FC, useEffect, useState } from 'react';
 import { MONTHS } from '../../data';
-import { availability } from '../../data';
-import { TeacherName } from '../../types';
+import { AvailableDay, SelectedType, TeacherName } from '../../types';
 
 interface CalendarMonthProps {
   selectedTeacher: TeacherName;
   month: number;
-  selectedTimeSetter: React.Dispatch<React.SetStateAction<Date | null>>;
+  selectedTimeSetter: React.Dispatch<React.SetStateAction<SelectedType | null>>;
   currentMonthNumber: number;
 }
 
@@ -18,6 +17,8 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
   selectedTeacher,
   currentMonthNumber,
 }) => {
+  const [availabilityData, setAvailabilityData] = useState<AvailableDay[]>([]);
+
   const date = new Date();
   const firstDayObject = new Date(
     date.getFullYear(),
@@ -26,14 +27,31 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
   );
 
   const firstDayIndex = firstDayObject.getDay() - 1;
-
   const daysInMonth = new Date(
     date.getFullYear(),
     date.getMonth() + 1 + month,
     0
   ).getDate();
-
   const [visibleDaySquares, setVisibleDaySquares] = useState(35);
+
+  useEffect(() => {
+    const fetchDays = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/days?teacherName=${selectedTeacher}`
+        );
+        if (!response.ok) throw new Error('Failed to fetch days');
+        const data: AvailableDay[] = await response.json();
+
+        setAvailabilityData(data);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching days:', error);
+      }
+    };
+
+    fetchDays();
+  }, [setAvailabilityData, selectedTeacher]);
 
   useEffect(() => {
     if (firstDayIndex === 5 && daysInMonth === 31) {
@@ -55,20 +73,15 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
     return `${getDayofMonth(index)} ${MONTHS[date.getMonth() + month]} ${date.getFullYear()}`;
   };
 
-  const filterAvailabilityForTeacher = (teacherName: TeacherName) => {
-    return availability.filter((object) => object.teacherName === teacherName);
-  };
-
-  const aviailabilityForTeacher = filterAvailabilityForTeacher(selectedTeacher);
-
-  const getAvailableDayForCalendarDay = (dayOfMonth: number | undefined) => {
-    return aviailabilityForTeacher.find(
-      (availableDay) =>
-        availableDay.start.getDate() === dayOfMonth &&
-        availableDay.start.getMonth() === currentMonthNumber + month
-    );
-    //this will return either the object or undefined, depending on if we had added avail. for
-    //that day.
+  const getAvailableDayForCalendarDay = (
+    dayOfMonth: number | undefined
+  ): AvailableDay | undefined => {
+    return availabilityData.find((availableDay: AvailableDay) => {
+      return (
+        new Date(availableDay.date).getDate() === dayOfMonth &&
+        new Date(availableDay.date).getMonth() === currentMonthNumber + month
+      );
+    });
   };
 
   const calendarDaysArray = Array.from(
@@ -76,15 +89,11 @@ const CalendarMonth: FC<CalendarMonthProps> = ({
     (_, index) => (
       <CalendarDay
         key={index}
-        index={index}
         day={getDayofMonth(index)}
         isBlank={getDayofMonth(index) === undefined}
-        availableDay={getAvailableDayForCalendarDay(getDayofMonth(index))}
-        // status={isDayAvailable(getDayofMonth(index) ?? 0)} // jesli getDayOfMonth(index) jest undefined to uzyj 0
         chosenDate={getChosenDate(index)}
-        month={month}
         selectedTimeSetter={selectedTimeSetter}
-        getDayofMonth={getDayofMonth}
+        availableDay={getAvailableDayForCalendarDay(getDayofMonth(index))}
       />
     )
   );

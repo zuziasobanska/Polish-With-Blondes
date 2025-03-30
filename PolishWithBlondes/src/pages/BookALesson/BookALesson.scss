@@ -77,6 +77,12 @@
   .selected-time {
     font-size: 14.5px;
     margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .selected-time-inner {
+    color: var(--button-color);
+    font-size: 20px;
+    margin-left: 15px;
   }
   .btn {
     max-width: 450px;

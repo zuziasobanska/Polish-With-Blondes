@@ -85,6 +85,19 @@
 .hour-selected {
   background-color: rgba(151, 220, 121, 0.8);
 }
+
+.taken-hour {
+  background-color: white;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #ecb6b6,
+    #ecb6b6 2px,
+    white 2px,
+    white 6px
+  );
+  background-size: 8px 8px;
+}
+
 .hours-footer {
   font-family: var(--font-family);
   font-size: 14px;

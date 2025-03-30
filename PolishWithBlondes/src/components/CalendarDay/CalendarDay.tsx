@@ -1,16 +1,14 @@
-import { FC, SetStateAction, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './CalendarDay.scss';
 import Modal from 'react-modal';
-import { AvailableDay } from '../../types';
+import { AvailableDay, Quarter, SelectedType } from '../../types';
+import clsx from 'clsx';
 
 interface CalendarDayProps {
   day?: number;
   isBlank: boolean;
   chosenDate: string;
-  month: number;
-  selectedTimeSetter: React.Dispatch<React.SetStateAction<Date | null>>;
-  index: number;
-  getDayofMonth: (index: number) => number | undefined;
+  selectedTimeSetter: React.Dispatch<React.SetStateAction<SelectedType | null>>;
   availableDay: AvailableDay | undefined;
 }
 
@@ -18,20 +16,44 @@ const CalendarDay: FC<CalendarDayProps> = ({
   day,
   isBlank,
   chosenDate,
-  month,
   selectedTimeSetter,
-  index,
-  getDayofMonth,
   availableDay,
 }) => {
-  const date = new Date();
-
+  const [quarters, setQuarters] = useState<Quarter[]>([]);
   const [hoursAreOpen, setHoursAreOpen] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
   const [selectedHourIndex, setSelectedHourIndex] = useState<
     number | undefined
   >(undefined);
-  const [selectedHour, setSelectedHour] = useState('');
+  const [selectedQuarterIsTaken, setSelectedQuarterIsTaken] = useState(false);
+
+  useEffect(() => {
+    if (selectedQuarterIsTaken) {
+      setButtonVisible(false);
+    } else {
+      setButtonVisible(true);
+    }
+  }, [selectedQuarterIsTaken]);
+
+  useEffect(() => {
+    const fetchQuartersForDay = async (dayId: number) => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/quarters?dayId=${dayId}`
+        );
+        if (!response.ok)
+          throw new Error('Failed to fetch quarters for this day');
+        const data: Quarter[] = await response.json();
+        setQuarters(data);
+      } catch (error) {
+        console.error('Error fetching quarters:', error);
+      }
+    };
+
+    if (availableDay) {
+      fetchQuartersForDay(availableDay.id);
+    }
+  }, [availableDay]);
 
   const openHours = () => {
     document.body.style.overflow = 'hidden';
@@ -47,61 +69,43 @@ const CalendarDay: FC<CalendarDayProps> = ({
     if (availableDay) {
       openHours();
     }
-    console.log(availableDay?.start.getHours());
-  };
-
-  const generateTimeSlots = (availableDay: AvailableDay) => {
-    const startMinutes =
-      availableDay.start.getHours() * 60 + availableDay.start.getMinutes();
-    const endMinutes =
-      availableDay.end.getHours() * 60 + availableDay.end.getMinutes() - 30;
-
-    return Array.from(
-      { length: Math.floor((endMinutes - startMinutes) / 15) + 1 },
-      (_, index) => {
-        const totalMinutes = startMinutes + index * 15;
-        const hours = Math.floor(totalMinutes / 60);
-        const minutes = totalMinutes % 60;
-        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-      }
-    );
   };
 
   const handleHourClick = (
     currentIndex: number,
-    timeSlot: SetStateAction<string>
+    start: string,
+    id: number,
+    isTaken: boolean,
+    nextQuarterId: number,
+    thirdQuarterId: number
   ) => {
-    setButtonVisible(true);
+    setSelectedQuarterIsTaken(isTaken);
     setSelectedHourIndex(currentIndex);
-    setSelectedHour(timeSlot);
+
+    selectedTimeSetter({
+      start: new Date(start),
+      chosenDate: chosenDate,
+      quarterId: id,
+      nextQuarterId,
+      // nextQuarterId: nextQuarterId
+      thirdQuarterId,
+      //same here, its an abbreviation when key and value are of the same name
+    });
+    // here we need to add information about the next two time slots (we assume they are always available (see ticket no 2 - fronted data display basing on available quarters))
   };
-
   const handleButtonClick = () => {
-    const dayOfMonth = getDayofMonth(index);
-    const selectedHourNumber = Number(selectedHour.split(':')[0]);
-
-    if (dayOfMonth === undefined || isNaN(selectedHourNumber)) {
-      console.error('Invalid date values:', { dayOfMonth, selectedHour });
-      return;
-    }
-
-    selectedTimeSetter(
-      new Date(
-        date.getFullYear(),
-        date.getMonth() + month,
-        dayOfMonth,
-        selectedHourNumber
-      )
-    );
     closeHours();
-    console.log(selectedTimeSetter);
   };
 
   return (
     <>
       <div
         onClick={handleDayClick}
-        className={`${availableDay && !isBlank ? 'day-container available-day' : 'day-container blank'}`}
+        className={`${
+          availableDay && !isBlank
+            ? 'day-container available-day'
+            : 'day-container blank'
+        }`}
       >
         <div className="day-number">{day}</div>
       </div>
@@ -118,17 +122,33 @@ const CalendarDay: FC<CalendarDayProps> = ({
           </button>
           <h1 className="hours-title">{chosenDate}</h1>
           <ul className="hours">
-            {availableDay &&
-              generateTimeSlots(availableDay).map((timeSlot, index) => (
-                <li
-                  key={index}
-                  className={`${selectedHourIndex === index ? 'hour hour-selected' : 'hour'}`}
-                  onClick={() => handleHourClick(index, timeSlot)}
-                >
-                  {timeSlot}
-                </li>
-              ))}
+            {quarters.map((quarter, index, arrayOfQuarters) => (
+              <li
+                key={index}
+                className={clsx('hour', {
+                  'hour-selected': selectedHourIndex === index,
+                  'taken-hour': quarter.isTaken,
+                })}
+                onClick={() =>
+                  handleHourClick(
+                    index,
+                    quarter.start,
+                    quarter.id,
+                    quarter.isTaken,
+                    arrayOfQuarters[index + 1]?.id,
+                    arrayOfQuarters[index + 2]?.id
+                  )
+                }
+              >
+                {new Date(quarter.start).toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  hour12: false,
+                })}
+              </li>
+            ))}
           </ul>
+
           {buttonVisible && (
             <button className="btn hour-button" onClick={handleButtonClick}>
               Select time

@@ -1,4 +1,4 @@
-export type TeacherName = 'Kasia' | 'Iza' | 'Zuzia'; //string union
+export type TeacherName = 'Kasia' | 'Iza' | 'Zuzia';
 
 export type Teacher = {
   name: TeacherName;
@@ -8,4 +8,23 @@ export type Teacher = {
   lessonDescription: string;
 };
 
-export type AvailableDay = { teacherName: TeacherName; start: Date; end: Date };
+export type AvailableDay = {
+  teacherName: TeacherName;
+  date: string;
+  id: number;
+};
+
+export type Quarter = {
+  start: string;
+  isTaken: boolean;
+  id: number;
+  dayId: number;
+};
+
+export type SelectedType = {
+  quarterId: number;
+  start: Date;
+  chosenDate: string;
+  nextQuarterId: number;
+  thirdQuarterId: number;
+};
