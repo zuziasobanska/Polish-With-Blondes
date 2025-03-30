@@ -158,12 +158,9 @@ const BookALesson = () => {
     // if length 30 min - patch selected and next quarter
     // if length 45min  - patch selected and next and next
 
-    const quartersToUpdate = [quarterId];
-
-    if (selectedLength === '30') {
-      quartersToUpdate.push(nextQuarterId);
-    } else if (selectedLength === '45') {
-      quartersToUpdate.push(nextQuarterId, thirdQuarterId);
+    const quartersToUpdate = [quarterId, nextQuarterId];
+    if (selectedLength === '45') {
+      quartersToUpdate.push(thirdQuarterId);
     }
 
     try {
