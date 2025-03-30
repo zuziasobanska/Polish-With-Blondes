@@ -37,6 +37,8 @@ import Calendar from '../../components/Calendar/Calendar';
 //   },
 // };
 
+const MILLISECONDS_IN_A_MINUTE = 60 * 1000;
+
 const BookALesson = () => {
   // const navigate = useNavigate();
   const location = useLocation();
@@ -105,7 +107,7 @@ const BookALesson = () => {
 
   const updateTimeSlots = async () => {
     if (!selectedTime) return;
-    const { quarterId, nextQuarterId, thirdQuartedId } = selectedTime;
+    const { quarterId, nextQuarterId, thirdQuarterId } = selectedTime;
     if (!quarterId) {
       return;
     }
@@ -156,70 +158,29 @@ const BookALesson = () => {
     // if length 30 min - patch selected and next quarter
     // if length 45min  - patch selected and next and next
 
+    const quartersToUpdate = [quarterId];
+
     if (selectedLength === '30') {
-      const patchResponse = await fetch(
-        `http://localhost:3000/quarters/${quarterId}`,
-        {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ isTaken: true }),
-        }
-      );
-
-      if (!patchResponse.ok) {
-        throw new Error('Failed to update');
-      }
-
-      const patchResponseTwo = await fetch(
-        `http://localhost:3000/quarters/${nextQuarterId}`,
-        {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ isTaken: true }),
-        }
-      );
-
-      if (!patchResponseTwo.ok) {
-        throw new Error('Failed to update');
-      }
+      quartersToUpdate.push(nextQuarterId);
     } else if (selectedLength === '45') {
-      const patchResponse = await fetch(
-        `http://localhost:3000/quarters/${quarterId}`,
-        {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ isTaken: true }),
-        }
+      quartersToUpdate.push(nextQuarterId, thirdQuarterId);
+    }
+
+    try {
+      const responses = await Promise.all(
+        quartersToUpdate.map((id) =>
+          fetch(`http://localhost:3000/quarters/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ isTaken: true }),
+          })
+        )
       );
-
-      if (!patchResponse.ok) {
-        throw new Error('Failed to update');
+      if (responses.some((res) => !res.ok)) {
+        throw new Error('Failed to update one or more timeslots');
       }
-
-      const patchResponseTwo = await fetch(
-        `http://localhost:3000/quarters/${nextQuarterId}`,
-        {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ isTaken: true }),
-        }
-      );
-
-      if (!patchResponseTwo.ok) {
-        throw new Error('Failed to update');
-      }
-      const patchResponseThree = await fetch(
-        `http://localhost:3000/quarters/${thirdQuartedId}`,
-        {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ isTaken: true }),
-        }
-      );
-
-      if (!patchResponseThree.ok) {
-        throw new Error('Failed to update');
-      }
+    } catch (error) {
+      console.error('Error updating time slots:', error);
     }
   };
 
@@ -382,10 +343,9 @@ const BookALesson = () => {
                   calendarMessage
                 ) : (
                   <p>
-                    Your selected time:{' '}
+                    Your selected time:
                     <b className="selected-time-inner">
                       {`${selectedTime.chosenDate}, `}
-                      {''}
                       {selectedTime.start.toLocaleTimeString([], {
                         hour: '2-digit',
                         minute: '2-digit',
@@ -395,7 +355,7 @@ const BookALesson = () => {
                         {selectedLength !== '' &&
                           ` - ${new Date(
                             selectedTime.start.getTime() +
-                              Number(selectedLength) * 60000
+                              Number(selectedLength) * MILLISECONDS_IN_A_MINUTE
                           ).toLocaleTimeString([], {
                             hour: '2-digit',
                             minute: '2-digit',

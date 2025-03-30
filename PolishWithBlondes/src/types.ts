@@ -26,5 +26,5 @@ export type SelectedType = {
   start: Date;
   chosenDate: string;
   nextQuarterId: number;
-  thirdQuartedId?: number;
+  thirdQuarterId: number;
 };

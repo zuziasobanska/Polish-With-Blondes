@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import './CalendarDay.scss';
 import Modal from 'react-modal';
 import { AvailableDay, Quarter, SelectedType } from '../../types';
+import clsx from 'clsx';
 
 interface CalendarDayProps {
   day?: number;
@@ -76,7 +77,7 @@ const CalendarDay: FC<CalendarDayProps> = ({
     id: number,
     isTaken: boolean,
     nextQuarterId: number,
-    thirdQuartedId?: number
+    thirdQuarterId: number
   ) => {
     setSelectedQuarterIsTaken(isTaken);
     setSelectedHourIndex(currentIndex);
@@ -87,7 +88,7 @@ const CalendarDay: FC<CalendarDayProps> = ({
       quarterId: id,
       nextQuarterId,
       // nextQuarterId: nextQuarterId
-      thirdQuartedId,
+      thirdQuarterId,
       //same here, its an abbreviation when key and value are of the same name
     });
     // here we need to add information about the next two time slots (we assume they are always available (see ticket no 2 - fronted data display basing on available quarters))
@@ -124,9 +125,10 @@ const CalendarDay: FC<CalendarDayProps> = ({
             {quarters.map((quarter, index, arrayOfQuarters) => (
               <li
                 key={index}
-                className={`${
-                  selectedHourIndex === index ? 'hour hour-selected' : 'hour'
-                } ${quarter.isTaken === true && 'taken-hour'}`}
+                className={clsx('hour', {
+                  'hour-selected': selectedHourIndex === index,
+                  'taken-hour': quarter.isTaken,
+                })}
                 onClick={() =>
                   handleHourClick(
                     index,

@@ -67,7 +67,7 @@
     {
       "id": 8,
       "dayId": 1,
-      "isTaken": false,
+      "isTaken": true,
       "start": "2025-03-01T15:45:00.000"
     },
     {
